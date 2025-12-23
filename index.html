@@ -585,10 +585,12 @@
 
         // 1. System prompt to guide the AI's *summary* analysis
         const SUMMARY_SYSTEM_PROMPT = `You are an expert business analyst. Your task is to analyze a collection of timeline entries for a customer Call to Action (CTA) and produce a concise summary for an executive audience.
-Focus EXCLUSIVELY on identifying and extracting the following:
-1.  Risks
-2.  Issues
-3.  Specific Action Items (and who they are assigned to, if mentioned)
+The timeline entries are provided in chronological order (oldest to newest). You MUST prioritize the most recent entries (those with the latest dates) to reflect the current status. Older entries should provide context but should not override the latest status if the situation has changed.
+
+Focus EXCLUSIVELY on identifying and extracting the following based on the current reality:
+1.  Risks (Current)
+2.  Issues (Unresolved)
+3.  Specific Action Items (Pending/Recent - and who they are assigned to)
 
 Do NOT include neutral updates, positive sentiment, or general commentary. If no risks, issues, or action items are found, respond with "No specific risks, issues, or action items identified."`;
         
@@ -598,7 +600,7 @@ Do NOT include neutral updates, positive sentiment, or general commentary. If no
 Your task is to classify the CTA into ONE of the following primary risk themes:
 Product Risk, Support Risk, Engagement Risk, Containment Risk, Renewal, Churn, Other Risk.
 
-Use the "Reason" as a strong hint, but use the timeline notes as the primary source of truth.
+Use the "Reason" as a strong hint, but use the timeline notes as the primary source of truth. Pay close attention to the dates of the timeline entries; the most recent entries reflect the current reality and should weigh heaviest in your classification.
 Respond with ONLY the theme name and nothing else. For example: "Product Risk"`;
         
         // 3. NEW: System prompt to guide the AI's *theme summary*
@@ -641,6 +643,7 @@ Example Output:
         // 4. NEW: System prompt to summarize the *detailed summary* for the rollup table
         const THEME_EVIDENCE_SUMMARY_PROMPT = `You are an executive assistant. You will be given a block of text containing "Risks", "Issues", and "Action Items".
 Your task is to summarize ONLY the core risks and issues into a single, concise sentence (max 2-3 sentences).
+Ensure the summary reflects the *current* state of affairs described in the input.
 Do NOT include action items. Do NOT use markdown. Start directly with the summary.
 
 Example Input:
