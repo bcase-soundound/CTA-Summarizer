@@ -53,7 +53,7 @@
             margin-bottom: 1rem;
         }
 
-        /* --- NEW: Table Styles for Rollup --- */
+        /* --- Table Styles for Rollup --- */
         .rollup-table {
             width: 100%;
             border-collapse: collapse;
@@ -79,8 +79,6 @@
             border-bottom: none;
         }
         
-        /* Specific column widths & styles */
-        /* UPDATED: Removed all fixed-width percentages to allow auto-sizing */
         .rollup-table .th-arr { text-align: right; }
         .rollup-table .th-count { text-align: right; }
  
@@ -97,7 +95,6 @@
         .rollup-table .td-cta {
             font-size: 0.8rem; /* 13px */
             color: #4b5563; /* gray-600 */
-            /* NEW: Add list styling for multiple CTAs */
             list-style-type: disc;
             padding-left: 1.25rem;
             margin: 0;
@@ -116,7 +113,6 @@
             color: #374151; /* gray-700 */
             line-height: 1.5;
         }
-        /* NEW: Styling for the account-specific evidence list */
         .rollup-table .td-theme-summary ul {
             list-style-type: none;
             padding-left: 0;
@@ -130,10 +126,10 @@
         .rollup-table .td-theme-summary li strong {
             font-weight: 600;
             color: #111827; /* gray-900 */
-            display: block; /* Puts account name on its own line */
+            display: block;
         }
 
-        /* --- NEW: Styles for new theme summary list --- */
+        /* Styles for new theme summary list */
         .rollup-table .td-theme-summary-ol {
             list-style-type: decimal;
             padding-left: 1.25rem;
@@ -163,25 +159,6 @@
             margin-bottom: 0.25rem;
             padding-left: 0.5rem;
         }
-        /* Style the injected summary */
-        .rollup-table .td-theme-summary h4 {
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 0.25rem;
-            margin-bottom: 0;
-            color: #111827;
-        }
-        .rollup-table .td-theme-summary ul {
-            font-size: 0.8rem;
-            padding-left: 1.1rem;
-            margin-top: 0.25rem;
-        }
-        .rollup-table .td-theme-summary p {
-            font-size: 0.8rem;
-            margin-top: 0.25rem;
-        }
-        /* --- END: New Styles --- */
-
 
         .rollup-table .td-theme-accounts {
             font-size: 0.75rem; /* 12px */
@@ -195,9 +172,8 @@
             color: #111827; /* gray-900 */
             text-align: right;
             vertical-align: middle;
-            line-height: 1.4; /* NEW: Added for spacing */
+            line-height: 1.4;
         }
-        /* NEW: Style for the count breakdown */
         .rollup-table .td-count .count-breakdown {
             display: block;
             font-size: 0.75rem; /* 12px */
@@ -222,8 +198,6 @@
             font-size: 1.125rem;
             text-align: right;
         }
-        /* --- END: Table Styles --- */
-
 
         /* Report Item Styles */
         .report-item {
@@ -240,7 +214,7 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 0.75rem;
-            flex-wrap: wrap; /* Wrap for smaller screens */
+            flex-wrap: wrap; 
         }
         .report-item-title h2 {
             font-size: 1.5rem; /* 24px */
@@ -262,15 +236,14 @@
             font-size: 0.875rem; /* 14px */
             color: #374151; /* gray-700 */
             line-height: 1.4;
-            min-width: 200px; /* Ensure it doesn't get too scrunched */
-            padding-left: 1rem; /* Space from title */
+            min-width: 200px;
+            padding-left: 1rem;
         }
         .report-item-metadata strong {
             color: #111827; /* gray-900 */
             font-weight: 500;
         }
 
-        /* Styles for summary content *inside* the item */
         .summary-content {
             font-size: 0.875rem; /* 14px */
             padding: 0.75rem 1rem;
@@ -281,12 +254,12 @@
         .summary-content h4 {
             font-size: 0.95rem; /* 15px */
             font-weight: 700;
-            margin-top: 0.5rem; /* Reduced margin */
+            margin-top: 0.5rem;
             margin-bottom: 0.25rem;
             color: #111827;
         }
         .summary-content h4:first-child {
-            margin-top: 0; /* No margin for the first heading */
+            margin-top: 0;
         }
         .summary-content ul {
             list-style-type: disc;
@@ -300,19 +273,17 @@
             margin: 0;
         }
         
-        /* Spinner Animation */
         .spinner {
             animation: spin 1s linear infinite;
-            border-top-color: transparent; /* Make top border transparent */
+            border-top-color: transparent;
         }
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
 
-        /* Message Box Styles */
         #message-box {
             position: fixed;
-            bottom: -100px; /* Start off-screen */
+            bottom: -100px;
             left: 50%;
             transform: translateX(-50%);
             padding: 1rem 1.5rem;
@@ -323,351 +294,155 @@
             transition: bottom 0.5s ease-in-out;
         }
         #message-box.show {
-            bottom: 2rem; /* Slide in */
+            bottom: 2rem;
         }
         
-        /* Print-specific styles */
         @media print {
-            body {
-                background-color: #ffffff;
-                font-family: 'Inter', sans-serif;
-            }
-            #app-container, #report-header, #cache-loader {
-                display: none; /* Hide the app UI when printing */
-            }
-            #report-container {
-                display: block;
-                box-shadow: none;
-                margin: 0;
-                padding: 0;
-                max-width: 100%;
-            }
-            #report-content {
-                padding: 0;
-                border: none;
-            }
-            #report-content h1 {
-                color: #000000;
-            }
-            /* Table print styles */
-            .rollup-table {
-                font-size: 10pt; /* Smaller font for print */
-                page-break-inside: avoid;
-            }
-            .rollup-table th, .rollup-table td {
-                padding: 4px 6px;
-                background-color: #ffffff !important;
-                color: #000000 !important;
-                border: 1px solid #dddddd; /* Add borders for Word */
-            }
-            .rollup-table th {
-                background-color: #f0f0f0 !important;
-            }
-            .rollup-table .td-arr {
-                color: #000000 !important; /* Remove color from print */
-            }
-            .rollup-table .td-theme-summary {
-                font-style: normal;
-                border-left: none;
-            }
-            .rollup-section {
-                border: none;
-                padding: 0;
-                background-color: #ffffff !important;
-            }
-            .report-item {
-                page-break-inside: avoid;
-            }
+            body { background-color: #ffffff; font-family: 'Inter', sans-serif; }
+            #app-container, #report-header, #cache-loader { display: none; }
+            #report-container { display: block; box-shadow: none; margin: 0; padding: 0; max-width: 100%; }
+            #report-content { padding: 0; border: none; }
+            .rollup-table { font-size: 10pt; page-break-inside: avoid; }
+            .rollup-table th, .rollup-table td { padding: 4px 6px; background-color: #ffffff !important; color: #000000 !important; border: 1px solid #dddddd; }
+            .rollup-table th { background-color: #f0f0f0 !important; }
+            .rollup-section { border: none; padding: 0; background-color: #ffffff !important; }
+            .report-item { page-break-inside: avoid; }
         }
-
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900 p-4 md:p-8">
 
-    <!-- Main App Container -->
     <div class="max-w-7xl mx-auto space-y-8">
-        <!-- Header -->
         <header class="text-center">
             <h1 class="text-3xl md:text-4xl font-bold text-indigo-600">Executive CTA Summarizer</h1>
             <p class="mt-2 text-lg text-gray-600">Upload your CTA & Timeline files to generate a focused executive summary of risks, issues, and action items.</p>
         </header>
 
-        <!-- Main Application UI -->
+        <!-- Application UI -->
         <div id="app-container" class="space-y-6">
-            
-            <!-- Step 1: API Key Input -->
             <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                 <h2 class="text-xl font-semibold mb-4 text-indigo-700">Step 1: Enter Your API Key</h2>
-                <p class="text-sm text-gray-500 mb-3">
-                    You need a Google AI (Gemini) API key to use this tool. 
-                    You can get one from the <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-indigo-500 hover:underline">Google AI Studio</a>.
-                </p>
-                <label for="api-key-input" class="block text-sm font-medium text-gray-700">Gemini API Key</label>
-                <input type="password" id="api-key-input" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter your API key here...">
+                <input type="password" id="api-key-input" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter your API key here...">
             </div>
 
-            <!-- Step 2: Model Selection -->
             <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                 <h2 class="text-xl font-semibold mb-4 text-indigo-700">Step 2: Select API Model</h2>
-                <label for="model-select" class="block text-sm font-medium text-gray-700">Gemini Model</label>
-                <select id="model-select" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                <select id="model-select" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm sm:text-sm">
                     <option value="gemini-2.0-flash-lite">Gemini 2.0 Flash Lite (15 RPM)</option>
                     <option value="gemini-2.0-flash">Gemini 2.0 Flash (15 RPM)</option>
                     <option value="gemini-2.5-flash-lite">Gemini 2.5 Flash Lite (4000 RPM)</option>
                     <option value="gemini-2.5-flash">Gemini 2.5 Flash (10 RPM)</option>
                     <option value="gemini-2.5-pro">Gemini 2.5 Pro (2 RPM)</option>
                 </select>
-                <p id="model-info" class="text-sm text-gray-500 mt-3">
-                    Select a model to see its rate limit and processing time estimate.
-                </p>
+                <p id="model-info" class="text-sm text-gray-500 mt-3"></p>
             </div>
 
-            <!-- NEW: System Prompts Widget -->
             <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                 <div class="flex justify-between items-center cursor-pointer" id="prompts-toggle-btn">
                     <h2 class="text-xl font-semibold text-indigo-700">System Prompts Reference</h2>
                     <span id="prompts-toggle-icon" class="text-gray-500">▼</span>
                 </div>
                 <div id="prompts-container" class="hidden mt-4 space-y-4">
-                    <p class="text-sm text-gray-500">These are the system instructions sent to Gemini to guide its analysis. They are currently read-only.</p>
-                    
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">1. Theme Prediction Prompt (Step 1)</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">1. Theme Prediction Prompt</label>
                         <textarea id="prompt-theme-prediction" readonly class="w-full h-32 p-2 text-xs font-mono bg-gray-50 border border-gray-300 rounded-md focus:outline-none text-gray-600"></textarea>
                     </div>
-
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">2. Detailed Summary Prompt (Step 2a)</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">2. Detailed Summary Prompt</label>
                         <textarea id="prompt-detailed-summary" readonly class="w-full h-32 p-2 text-xs font-mono bg-gray-50 border border-gray-300 rounded-md focus:outline-none text-gray-600"></textarea>
                     </div>
-
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">3. Rollup Summary Prompt (Step 2b)</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">3. Rollup Summary Prompt</label>
                         <textarea id="prompt-rollup-summary" readonly class="w-full h-32 p-2 text-xs font-mono bg-gray-50 border border-gray-300 rounded-md focus:outline-none text-gray-600"></textarea>
                     </div>
                 </div>
             </div>
 
-
-            <!-- File Upload and Mapping Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Card 1: Important CTAs File -->
                 <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                     <h2 class="text-xl font-semibold mb-4 text-indigo-700">Step 3: Upload Important CTAs</h2>
-                    <p class="text-sm text-gray-500 mb-3">Upload the CSV or Excel file containing your list of important CTAs and their metadata.</p>
-                    <input type="file" id="cta-file" accept=".csv, .xlsx, .xls" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
-                    
-                    <!-- CTA Column Mapping -->
+                    <input type="file" id="cta-file" accept=".csv, .xlsx, .xls" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
                     <div id="cta-mapping" class="mt-6 space-y-4 hidden">
                         <h3 class="font-semibold text-gray-700">Map CTA Metadata Columns:</h3>
-                        <!-- Mapping fields will be injected here by JavaScript -->
                     </div>
                 </div>
-
-                <!-- Card 2: Timeline Entries File -->
                 <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                     <h2 class="text-xl font-semibold mb-4 text-indigo-700">Step 4: Upload Timeline Entries</h2>
-                    <p class="text-sm text-gray-500 mb-3">Upload the CSV or Excel file containing all timeline notes, linked by a CTA name.</p>
-                    <input type="file" id="timeline-file" accept=".csv, .xlsx, .xls" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
-                    
-                    <!-- Timeline Column Mapping -->
+                    <input type="file" id="timeline-file" accept=".csv, .xlsx, .xls" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
                     <div id="timeline-mapping" class="mt-6 space-y-4 hidden">
                         <h3 class="font-semibold text-gray-700">Map Timeline Data Columns:</h3>
-                        <!-- Mapping fields will be injected here by JavaScript -->
                     </div>
                 </div>
             </div>
 
-            <!-- Generate Button -->
             <div class="text-center pt-4">
-                <button id="generate-btn" disabled 
-                        class="w-full md:w-1/2 lg:w-1/3 py-3 px-6 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:shadow-none transition-colors duration-200">
+                <button id="generate-btn" disabled class="w-full md:w-1/2 lg:w-1/3 py-3 px-6 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 disabled:bg-gray-400">
                     Generate Report
                 </button>
-                <button id="clear-settings-btn"
-                        class="mt-2 text-sm text-gray-500 hover:text-indigo-600 hover:underline focus:outline-none">
+                <button id="clear-settings-btn" class="mt-2 text-sm text-gray-500 hover:text-indigo-600 focus:outline-none">
                     Clear Saved Settings
                 </button>
             </div>
         </div>
 
-        <!-- Loading Spinner -->
+        <!-- Feedback & Cache -->
         <div id="loader" class="hidden text-center py-12">
             <div class="spinner w-12 h-12 rounded-full border-4 border-indigo-600 border-t-transparent mx-auto"></div>
-            <p id="loader-text" class="mt-4 text-lg font-medium text-gray-700">Analyzing... This may take a moment.</p>
+            <p id="loader-text" class="mt-4 text-lg font-medium text-gray-700">Analyzing...</p>
         </div>
 
-        <!-- NEW: Cache Loader -->
         <div id="cache-loader" class="hidden text-center p-4 bg-yellow-50 border border-yellow-300 rounded-lg shadow-sm">
             <p class="font-medium text-yellow-800">You have a previously generated report.</p>
             <p id="cache-timestamp" class="text-sm text-yellow-700 mb-2"></p>
-            <button id="load-cache-btn" class="py-1 px-3 bg-yellow-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-75 transition-colors duration-200">
-                Load Previous Report
-            </button>
-            <button id="clear-cache-btn" class="ml-2 py-1 px-3 text-sm text-yellow-700 hover:text-yellow-900 hover:underline focus:outline-none">
-                Clear
-            </button>
+            <button id="load-cache-btn" class="py-1 px-3 bg-yellow-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-yellow-600">Load Previous Report</button>
+            <button id="clear-cache-btn" class="ml-2 py-1 px-3 text-sm text-yellow-700 hover:text-yellow-900">Clear</button>
         </div>
 
-
-        <!-- Generated Report Container -->
+        <!-- Report Container -->
         <div id="report-container" class="bg-white p-6 md:p-10 rounded-lg shadow-xl border border-gray-200 hidden">
-            <!-- Report Header (for UI, hidden in print) -->
             <div id="report-header" class="flex flex-col sm:flex-row justify-between items-center mb-6 border-b border-gray-200 pb-4">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4 sm:mb-0">Generated Executive Summary</h2>
-                <!-- UPDATED: Added new download button -->
                 <div class="flex items-center space-x-4">
-                    <button id="copy-btn" class="py-2 px-4 bg-gray-600 text-white font-semibold rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75 transition-colors duration-200">
-                        Copy to Clipboard
-                    </button>
-                    <!-- NEW: Download Button Added -->
-                    <button id="download-btn" class="py-2 px-4 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 transition-colors duration-200">
-                        Download HTML
-                    </button>
+                    <button id="copy-btn" class="py-2 px-4 bg-gray-600 text-white font-semibold rounded-lg shadow-md hover:bg-gray-700">Copy to Clipboard</button>
+                    <button id="download-btn" class="py-2 px-4 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700">Download HTML</button>
                 </div>
             </div>
-
-            <!-- Content to be copied/printed -->
-            <div id="report-content">
-                <!-- 
-                  NEW: Executive Rollup section will be injected here first.
-                  Then the detailed list will be injected below it.
-                -->
-            </div>
+            <div id="report-content"></div>
         </div>
     </div>
 
-    <!-- Message Box for notifications -->
     <div id="message-box" class="bg-green-500 text-white">
         <span id="message-text"></span>
     </div>
 
-    <!-- Main Application Logic -->
     <script type="module">
-        // === Gemini API Configuration ===
         const BASE_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/`;
         
-        // Model configurations with API names, RPMs, and throttle delays
         const MODEL_CONFIGS = {
-            'gemini-2.0-flash-lite': {
-                apiName: 'gemini-2.0-flash-lite',
-                rpm: 15, // UPDATED: Lowered from 30 to be more conservative
-                throttleDelay: 5000, // UPDATED: (60s / 15 RPM) * 1000ms + 1000ms buffer
-                displayName: 'Gemini 2.0 Flash Lite'
-            },
-            'gemini-2.0-flash': {
-                apiName: 'gemini-2.0-flash',
-                rpm: 15,
-                throttleDelay: 5000, // UPDATED: 4000ms + 1000ms buffer
-                displayName: 'Gemini 2.0 Flash'
-            },
-            'gemini-2.5-flash-lite': {
-                apiName: 'gemini-2.5-flash-lite',
-                rpm: 4000, // UPDATED: Tier 1
-                throttleDelay: 15, // UPDATED: ~15ms delay
-                displayName: 'Gemini 2.5 Flash Lite'
-            },
-            'gemini-2.5-flash': {
-                apiName: 'gemini-2.5-flash',
-                rpm: 10,
-                throttleDelay: 7000, // UPDATED: 6000ms + 1000ms buffer
-                displayName: 'Gemini 2.5 Flash'
-            },
-            'gemini-2.5-pro': {
-                apiName: 'gemini-2.5-pro',
-                rpm: 2, // Corrected
-                throttleDelay: 31000, // UPDATED: 30000ms + 1000ms buffer
-                displayName: 'Gemini 2.5 Pro'
-            }
+            'gemini-2.0-flash-lite': { apiName: 'gemini-2.0-flash-lite', rpm: 15, throttleDelay: 5000, displayName: 'Gemini 2.0 Flash Lite' },
+            'gemini-2.0-flash': { apiName: 'gemini-2.0-flash', rpm: 15, throttleDelay: 5000, displayName: 'Gemini 2.0 Flash' },
+            'gemini-2.5-flash-lite': { apiName: 'gemini-2.5-flash-lite', rpm: 4000, throttleDelay: 15, displayName: 'Gemini 2.5 Flash Lite' },
+            'gemini-2.5-flash': { apiName: 'gemini-2.5-flash', rpm: 10, throttleDelay: 7000, displayName: 'Gemini 2.5 Flash' },
+            'gemini-2.5-pro': { apiName: 'gemini-2.5-pro', rpm: 2, throttleDelay: 31000, displayName: 'Gemini 2.5 Pro' }
         };
 
-        // --- NEW: Two distinct system prompts ---
-
-        // 1. System prompt to guide the AI's *summary* analysis
-        const SUMMARY_SYSTEM_PROMPT = `You are an expert business analyst. Your task is to analyze a collection of timeline entries for a customer Call to Action (CTA) and produce a concise summary for an executive audience.
-The timeline entries are provided in chronological order (oldest to newest). You MUST prioritize the most recent entries (those with the latest dates) to reflect the current status. Older entries should provide context but should not override the latest status if the situation has changed.
-
-Focus EXCLUSIVELY on identifying and extracting the following based on the current reality:
-1.  Risks (Current)
-2.  Issues (Unresolved)
-3.  Specific Action Items (Pending/Recent - and who they are assigned to)
-
-Do NOT include neutral updates, positive sentiment, or general commentary. If no risks, issues, or action items are found, respond with "No specific risks, issues, or action items identified."`;
+        const SUMMARY_SYSTEM_PROMPT = `You are an expert business analyst. Your task is to analyze a collection of timeline entries for a customer Call to Action (CTA) and produce a concise summary for an executive audience. Prioritize the most recent entries (those with the latest dates) to reflect the current status. 
+Focus EXCLUSIVELY on identifying and extracting:
+1. Risks (Current)
+2. Issues (Unresolved)
+3. Specific Action Items (Pending/Recent)
+Respond with "No specific risks, issues, or action items identified." if none found.`;
         
-        // 2. System prompt to guide the AI's *theme prediction*
-        // UPDATED: Now takes the "Reason" field as a *hint*.
-        const THEME_PREDICTION_PROMPT = `You are a risk analyst. Analyze the following CTA context. You will be given metadata, timeline notes, and potentially an existing "Reason" as a hint. 
-Your task is to classify the CTA into ONE of the following primary risk themes:
-Product Risk, Support Risk, Engagement Risk, Containment Risk, Renewal, Churn, Other Risk.
-
-Use the "Reason" as a strong hint, but use the timeline notes as the primary source of truth. Pay close attention to the dates of the timeline entries; the most recent entries reflect the current reality and should weigh heaviest in your classification.
-Respond with ONLY the theme name and nothing else. For example: "Product Risk"`;
+        const THEME_PREDICTION_PROMPT = `You are a risk analyst. Classify the CTA into ONE of: Product Risk, Support Risk, Engagement Risk, Containment Risk, Renewal, Churn, Other Risk. Respond with ONLY the theme name.`;
         
-        // 3. NEW: System prompt to guide the AI's *theme summary*
-        // UPDATED: This prompt is no longer used for the theme table, but kept for reference
-        // The summary is now built from the detailed (Loop 3) summaries.
-        const THEME_SUMMARY_PROMPT = `You are an executive-level business analyst. You will be given a primary Risk Theme (e.g., "Product Risk") and two lists of "Evidence" blocks.
-1.  Evidence from "Reason" field: CTAs that were *manually* tagged with this theme.
-2.  Evidence from AI Prediction: CTAs that your colleague (an AI) *predicted* belong to this theme.
+        const THEME_EVIDENCE_SUMMARY_PROMPT = `You are an executive assistant. Summarize ONLY core risks and issues into a single, concise sentence (max 2 sentences). No markdown.`;
 
-Your task is to generate an HTML list of account-specific evidence.
-- Do NOT write a generic summary or narrative.
-- For each Account, create one <li> item.
-- Start the item with the Account Name in <strong> tags.
-- Follow with 1-2 sentences of *specific, verbatim evidence* from the notes or reasons (e.g., "UAT blockers," "latency issues," "no exec alignment") to show *why* that account is affiliated with this risk theme.
-- Wrap the entire response in a single <ul>.
-
-Example Input:
-Risk Theme: Product Risk
-
-Evidence from "Reason" field:
-Account Name: Acme Corp
-CTA Reason: "Product Gap: Missing Feature X"
-  Most Recent Note: [11/08] Still waiting on roadmap confirmation for Feature X. Customer is escalating.
-Account Name: Initech
-CTA Reason: "Bugs in V2.1"
-  Most Recent Note: [11/09] UAT blockers remain. Dev team is working on hotfix for the V2.1 login bug.
-
-Evidence from AI Prediction (Context):
-Account Name: Globex
-CTA Reason: "Customer unhappy with performance"
-  Most Recent Note: [11/07] Latency reported again during peak hours. Engineering is investigating.
-
-Example Output:
-<ul>
-<li><strong>Acme Corp:</strong> Evidence from CTA Reason ("Product Gap: Missing Feature X") and recent notes ("customer is escalating") points to product risk.</li>
-<li><strong>Initech:</strong> Evidence from CTA Reason ("Bugs in V2.1") and recent notes ("UAT blockers remain") indicates product risk.</li>
-<li><strong>Globex:</strong> Predicted as Product Risk due to "latency reported again during peak hours" per recent timeline entries.</li>
-</ul>`;
-
-        // 4. NEW: System prompt to summarize the *detailed summary* for the rollup table
-        const THEME_EVIDENCE_SUMMARY_PROMPT = `You are an executive assistant. You will be given a block of text containing "Risks", "Issues", and "Action Items".
-Your task is to summarize ONLY the core risks and issues into a single, concise sentence (max 2-3 sentences).
-Ensure the summary reflects the *current* state of affairs described in the input.
-Do NOT include action items. Do NOT use markdown. Start directly with the summary.
-
-Example Input:
-<h4>Risks:</h4>
-<ul><li>Customer is escalating due to UAT blockers.</li><li>Renewal is at risk if hotfix isn't delivered.</li></ul>
-<h4>Issues:</h4>
-<ul><li>Login bug in V2.1 remains.</li></ul>
-<h4>Action Items:</h4>
-<ul><li>Dev team to provide hotfix by EOD Friday.</li><li>CSM to follow up with customer.</li></ul>
-
-Example Output:
-The customer is escalating due to UAT blockers and a persistent login bug in V2.1, placing the renewal at risk.
-`;
-
-        // --- End of new prompts ---
-        
-        // === localStorage Keys ===
         const API_KEY_STORAGE_KEY = 'ctaSummarizerApiKey';
         const MAPPINGS_STORAGE_KEY = 'ctaSummarizerMappings';
         const MODEL_STORAGE_KEY = 'ctaSummarizerModel';
-        const REPORT_CACHE_KEY = 'ctaSummarizerLastReport'; // NEW
-        const REPORT_CACHE_TIMESTAMP_KEY = 'ctaSummarizerLastReportTimestamp'; // NEW
+        const REPORT_CACHE_KEY = 'ctaSummarizerLastReport'; 
+        const REPORT_CACHE_TIMESTAMP_KEY = 'ctaSummarizerLastReportTimestamp'; 
 
-        // === DOM Element Selectors ===
         const apiKeyInput = document.getElementById('api-key-input');
         const modelSelectEl = document.getElementById('model-select');
         const modelInfoEl = document.getElementById('model-info');
@@ -682,15 +457,13 @@ The customer is escalating due to UAT blockers and a persistent login bug in V2.
         const reportContainer = document.getElementById('report-container');
         const reportContent = document.getElementById('report-content');
         const copyBtn = document.getElementById('copy-btn');
-        const downloadBtn = document.getElementById('download-btn'); // UPDATED: Added download button
+        const downloadBtn = document.getElementById('download-btn'); 
         const messageBox = document.getElementById('message-box');
         const messageText = document.getElementById('message-text');
-        // NEW Cache elements
         const cacheLoaderEl = document.getElementById('cache-loader');
         const cacheTimestampEl = document.getElementById('cache-timestamp');
         const loadCacheBtn = document.getElementById('load-cache-btn');
         const clearCacheBtn = document.getElementById('clear-cache-btn');
-        // NEW: Prompt Widget elements
         const promptsToggleBtn = document.getElementById('prompts-toggle-btn');
         const promptsContainer = document.getElementById('prompts-container');
         const promptsToggleIcon = document.getElementById('prompts-toggle-icon');
@@ -698,113 +471,56 @@ The customer is escalating due to UAT blockers and a persistent login bug in V2.
         const promptDetailedEl = document.getElementById('prompt-detailed-summary');
         const promptRollupEl = document.getElementById('prompt-rollup-summary');
  
-        // === Application State ===
         let ctaHeaders = [];
         let ctaData = [];
         let timelineHeaders = [];
         let timelineData = [];
         let mappings = {
-            ctaName: '',
-            companyName: '',
-            csmName: '',
-            fieldCtoName: '', // NEW
-            accountOwnerName: '', // NEW
-            ctaCreatedDate: '', // NEW
-            ctaAge: '', // NEW
-            ctaPriority: '', // NEW
-            renewalDate: '',
-            arr: '',
-            riskTheme: '', // This is the "Reason Name" column. It's now required.
-            timelineCtaName: '',
-            timelineNote: '',
-            timelineActivityDate: '' // NEW: Added for the activity date
+            ctaName: '', companyName: '', csmName: '', fieldCtoName: '', 
+            accountOwnerName: '', ctaCreatedDate: '', ctaAge: '', ctaPriority: '', 
+            renewalDate: '', arr: '', riskTheme: '', timelineCtaName: '', 
+            timelineNote: '', timelineActivityDate: ''
         };
         
-        // UPDATED: All mappings are now required.
         const requiredMappings = [
-            'ctaName', 
-            'companyName', 
-            'csmName', 
-            'fieldCtoName', // NEW
-            'accountOwnerName', // NEW
-            'ctaCreatedDate', // NEW
-            'ctaAge', // NEW
-            'ctaPriority', // NEW
-            'renewalDate', 
-            'arr', 
-            'riskTheme', // Moved back to required
-            'timelineCtaName', 
-            'timelineNote',
-            'timelineActivityDate' // NEW: Added to required mappings
+            'ctaName', 'companyName', 'csmName', 'fieldCtoName', 'accountOwnerName', 
+            'ctaCreatedDate', 'ctaAge', 'ctaPriority', 'renewalDate', 'arr', 
+            'riskTheme', 'timelineCtaName', 'timelineNote', 'timelineActivityDate'
         ];
-        const optionalMappings = []; // None are optional
-        
-        // --- NEW: Global state for report data ---
+
         let rankedThreats = [];
         let themeAggregates = {};
         let renewalRisk = {};
         let ctaReportData = [];
-        let ctaDataWithThemes = []; // NEW: Made global for clipboard access
- 
-        // === Event Listeners ===
-        // MOVED TO BOTTOM OF SCRIPT
- 
-        /**
-         * Loads settings from localStorage on page load
-         */
+        let ctaDataWithThemes = []; 
+
         function loadSettings() {
             try {
-                // Load API Key
                 const savedApiKey = localStorage.getItem(API_KEY_STORAGE_KEY);
-                if (savedApiKey) {
-                    apiKeyInput.value = savedApiKey;
-                }
-
-                // Load Model Selection
+                if (savedApiKey) apiKeyInput.value = savedApiKey;
                 const savedModel = localStorage.getItem(MODEL_STORAGE_KEY);
-                if (savedModel && MODEL_CONFIGS[savedModel]) {
-                    modelSelectEl.value = savedModel;
-                }
-                updateModelInfo(); // Update info text based on loaded model
-
-                // Load Mappings
+                if (savedModel && MODEL_CONFIGS[savedModel]) modelSelectEl.value = savedModel;
+                updateModelInfo();
                 const savedMappings = localStorage.getItem(MAPPINGS_STORAGE_KEY);
                 if (savedMappings) {
-                    // Merge saved mappings with defaults to ensure all keys are present
                     const parsedMappings = JSON.parse(savedMappings);
                     mappings = { ...mappings, ...parsedMappings };
                 }
-                
-                // NEW: Load Cached Report
                 const cachedReport = localStorage.getItem(REPORT_CACHE_KEY);
                 const cachedTimestamp = localStorage.getItem(REPORT_CACHE_TIMESTAMP_KEY);
-                
                 if (cachedReport && cachedTimestamp) {
                     const date = new Date(cachedTimestamp);
                     cacheTimestampEl.textContent = `Generated on: ${date.toLocaleString()}`;
                     cacheLoaderEl.classList.remove('hidden');
-                } else {
-                    cacheLoaderEl.classList.add('hidden');
                 }
-
-            } catch (error) {
-                console.warn("Could not load settings from localStorage:", error);
-                // Clear potentially corrupted data
-                localStorage.removeItem(API_KEY_STORAGE_KEY);
-                localStorage.removeItem(MAPPINGS_STORAGE_KEY);
-                localStorage.removeItem(MODEL_STORAGE_KEY);
-                localStorage.removeItem(REPORT_CACHE_KEY); // NEW
-                localStorage.removeItem(REPORT_CACHE_TIMESTAMP_KEY); // NEW
-            }
-            checkGenerateButtonState(); // Check button state after loading key
-            
-            // NEW: Populate prompts
+            } catch (e) {}
+            checkGenerateButtonState();
             promptThemeEl.value = THEME_PREDICTION_PROMPT;
             promptDetailedEl.value = SUMMARY_SYSTEM_PROMPT;
             promptRollupEl.value = THEME_EVIDENCE_SUMMARY_PROMPT;
         }
-        
-        // NEW: Handlers for cache buttons
+
+        // --- NEW: Restore missing cache functions ---
         function loadCachedReport() {
             try {
                 const cachedReport = localStorage.getItem(REPORT_CACHE_KEY);
@@ -812,1881 +528,390 @@ The customer is escalating due to UAT blockers and a persistent login bug in V2.
                     reportContent.innerHTML = cachedReport;
                     reportContainer.classList.remove('hidden');
                     cacheLoaderEl.classList.add('hidden');
-                    
-                    // --- UPDATED ---
-                    // Enable both copy and download for cached reports
                     showMessage('Loaded previous report.', false);
-                    downloadBtn.disabled = false; // UPDATED: Enable download
+                    downloadBtn.disabled = false;
                     copyBtn.disabled = false;
-                } else {
-                    showMessage('No cached report found. It may have been cleared.', true);
-                    cacheLoaderEl.classList.add('hidden');
                 }
             } catch (error) {
-                console.error("Error loading cached report:", error);
                 showMessage('Failed to load cached report.', true);
             }
         }
         
         function clearCachedReport() {
-            try {
-                localStorage.removeItem(REPORT_CACHE_KEY);
-                localStorage.removeItem(REPORT_CACHE_TIMESTAMP_KEY);
-                cacheLoaderEl.classList.add('hidden');
-                showMessage('Cleared cached report.', false);
-            } catch (error) {
-                console.error("Error clearing cached report:", error);
-                showMessage('Failed to clear cached report.', true);
-            }
+            localStorage.removeItem(REPORT_CACHE_KEY);
+            localStorage.removeItem(REPORT_CACHE_TIMESTAMP_KEY);
+            cacheLoaderEl.classList.add('hidden');
+            showMessage('Cleared cached report.', false);
         }
 
-        /**
-         * Updates the model info text based on selection and CTA count
-         */
         function updateModelInfo() {
-            const modelId = modelSelectEl.value;
-            const modelConfig = MODEL_CONFIGS[modelId];
-
-            if (!modelConfig) {
-                modelInfoEl.textContent = 'Please select a valid model.';
-                return;
-            }
-
-            // Save the model selection to localStorage
-            try {
-                localStorage.setItem(MODEL_STORAGE_KEY, modelId);
-            } catch (error) {
-                console.warn("Could not save model selection to localStorage:", error);
-            }
-
+            const modelConfig = MODEL_CONFIGS[modelSelectEl.value];
+            if (!modelConfig) return;
             const ctaCount = ctaData.length;
-            let infoText = `This model allows ${modelConfig.rpm} requests per minute (RPM).`;
-            
-            // Calculate time estimate
+            let infoText = `Requests/min: ${modelConfig.rpm}.`;
             if (ctaCount > 0) {
-                // NEW CALCULATION: (CTA count for themes) + (CTA count for detail) + (CTA count for brevity)
-                const totalApiCalls = (ctaCount * 3);
-                
-                const totalSeconds = (totalApiCalls * modelConfig.throttleDelay) / 1000;
-                const totalMinutes = Math.ceil(totalSeconds / 60);
-
-                // NEW: Updated text
-                if (totalMinutes < 1) {
-                    infoText += ` With ${ctaCount} CTAs, this report requires ~3 calls per CTA (Theme, Detail, Brevity). Estimated time: ~${Math.ceil(totalSeconds)} seconds.`;
-                } else {
-                    infoText += ` With ${ctaCount} CTAs, this report requires ~3 calls per CTA (Theme, Detail, Brevity). Estimated time: ~${totalMinutes} minute(s).`;
-                }
-            } else {
-                infoText += ' Upload your CTA file to see a time estimate.';
+                const totalSeconds = (ctaCount * 3 * modelConfig.throttleDelay) / 1000;
+                infoText += ` Estimated: ${Math.ceil(totalSeconds/60)} minute(s).`;
             }
-
             modelInfoEl.textContent = infoText;
-            checkGenerateButtonState(); // Re-check button state as model is a dependency
+            checkGenerateButtonState();
         }
 
-        /**
-         * Parses an Excel or CSV file
-         * @param {File} file - The file to parse
-         * @returns {Promise<{headers: string[], data: object[]}>} - Parsed headers and data
-         */
         function parseFile(file) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
-
                 reader.onload = (e) => {
                     try {
                         const data = e.target.result;
                         const workbook = XLSX.read(data, { type: 'array' });
-                        
-                        const firstSheetName = workbook.SheetNames[0];
-                        if (!firstSheetName) {
-                            showMessage('The uploaded file is empty or has no sheets.', true);
-                            return reject(new Error('No sheets found in file.'));
-                        }
-                        
-                        const worksheet = workbook.Sheets[firstSheetName];
-                        
-                        // Use cellDates: true to parse Excel dates into JS Date objects
-                        const dataObjects = XLSX.utils.sheet_to_json(worksheet, { 
-                            cellDates: true, 
-                            defval: "" // Use empty string for empty cells
-                        });
-
-                        if (dataObjects.length === 0) {
-                            showMessage('The uploaded file is empty.', true);
-                            return reject(new Error('File is empty.'));
-                        }
-
-                        // Get headers from the first object
-                        const headers = Object.keys(dataObjects[0]).map(String);
-                        
-                        resolve({ headers, data: dataObjects });
-
-                    } catch (error) {
-                        console.error("Error parsing file:", error);
-                        showMessage(`Error parsing file: ${error.message}`, true);
-                        reject(error);
-                    }
+                        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+                        const dataObjects = XLSX.utils.sheet_to_json(sheet, { cellDates: true, defval: "" });
+                        if (dataObjects.length === 0) return reject(new Error('Empty file.'));
+                        resolve({ headers: Object.keys(dataObjects[0]), data: dataObjects });
+                    } catch (err) { reject(err); }
                 };
-
-                reader.onerror = (e) => {
-                    console.error("FileReader error:", e);
-                    showMessage('Error reading file.', true);
-                    reject(new Error('File read error.'));
-                };
-
                 reader.readAsArrayBuffer(file);
             });
         }
 
-
-        /**
-         * Handles file upload, parsing, and rendering mapping UI
-         */
         async function handleFileUpload(event, type) {
             const file = event.target.files[0];
             if (!file) return;
-
-            // Show loader while parsing
             loaderText.textContent = `Parsing ${file.name}...`;
             loader.classList.remove('hidden');
-            reportContainer.classList.add('hidden'); // Hide old report
-            
-            // Disable inputs while parsing
-            const otherFileInput = (type === 'cta') ? timelineFileEl : ctaFileEl;
-            event.target.disabled = true;
-            otherFileInput.disabled = true;
-            generateBtn.disabled = true;
-
             try {
                 const { headers, data } = await parseFile(file);
-
-                if (headers.length === 0 || data.length === 0) {
-                    // parseFile will show its own error message
-                    event.target.value = ''; // Reset file input
-                    return;
-                }
-
-                if (type === 'cta') {
-                    ctaHeaders = headers;
-                    ctaData = data;
-                    renderMappingUI('cta', headers);
-                    updateModelInfo(); // Update time estimate now that we have ctaData
-                } else {
-                    timelineHeaders = headers;
-                    timelineData = data;
-                    renderMappingUI('timeline', headers);
-                }
-            } catch (error) {
-                console.error("Error handling file upload:", error);
-                showMessage('An error occurred while processing the file.', true);
-                event.target.value = ''; // Reset file input
-            } finally {
-                // Re-enable inputs
-                loader.classList.add('hidden');
-                event.target.disabled = false;
-                otherFileInput.disabled = false;
-                // Now check the button state
-                checkGenerateButtonState(); 
-            }
+                if (type === 'cta') { ctaHeaders = headers; ctaData = data; renderMappingUI('cta', headers); updateModelInfo(); }
+                else { timelineHeaders = headers; timelineData = data; renderMappingUI('timeline', headers); }
+            } catch (e) { showMessage(e.message, true); }
+            finally { loader.classList.add('hidden'); checkGenerateButtonState(); }
         }
 
-        /**
-         * Renders the column selection dropdowns
-         */
         function renderMappingUI(type, headers) {
             let container, fields;
             if (type === 'cta') {
                 container = ctaMappingEl;
                 fields = [
-                    { key: 'ctaName', label: 'CTA Name (Join Key)', desc: 'The unique name of the CTA.' },
-                    { key: 'companyName', label: 'Company Name', desc: 'The customer\'s company name.' },
-                    { key: 'csmName', label: 'CSM Name (Full)', desc: 'The full name of the Customer Success Manager.' }, // Updated label
-                    { key: 'fieldCtoName', label: 'Field CTO Name', desc: 'The name of the Field CTO.' }, // NEW
-                    { key: 'accountOwnerName', label: 'Account Owner Name', desc: 'The name of the Account Owner.' }, // NEW
-                    { key: 'ctaCreatedDate', label: 'Created Date', desc: 'The date the CTA was created.' }, // NEW
-                    { key: 'ctaAge', label: 'Age', desc: 'How long the CTA has been open (in days).' }, // NEW
-                    { key: 'ctaPriority', label: 'Priority Name', desc: 'The priority of the CTA (e.g., High, Medium).' }, // NEW
-                    { key: 'renewalDate', label: 'Renewal Date', desc: 'The contract renewal date.' },
-                    { key: 'arr', label: 'ARR', desc: 'The Annual Recurring Revenue.' },
-                    // UPDATED: "riskTheme" is now required
-                    { key: 'riskTheme', label: 'Risk Theme / Reason', desc: 'The column for risk category (e.g., Product Risk).' }
+                    { key: 'ctaName', label: 'CTA Name' }, { key: 'companyName', label: 'Company' },
+                    { key: 'csmName', label: 'CSM Name' }, { key: 'fieldCtoName', label: 'Field CTO' },
+                    { key: 'accountOwnerName', label: 'Account Owner' }, { key: 'ctaCreatedDate', label: 'Created Date' },
+                    { key: 'ctaAge', label: 'Age' }, { key: 'ctaPriority', label: 'Priority' },
+                    { key: 'renewalDate', label: 'Renewal Date' }, { key: 'arr', label: 'ARR' },
+                    { key: 'riskTheme', label: 'Risk Theme / Reason' }
                 ];
             } else {
                 container = timelineMappingEl;
-                fields = [
-                    { key: 'timelineCtaName', label: 'CTA Name (Join Key)', desc: 'Must match the CTA Name from Step 1.' },
-                    { key: 'timelineNote', label: 'Timeline Note', desc: 'The column with the text entry.' },
-                    { key: 'timelineActivityDate', label: 'Activity Last Modified Date', desc: 'The timestamp for the timeline note.' } // UPDATED
-                ];
+                fields = [{ key: 'timelineCtaName', label: 'CTA Name' }, { key: 'timelineNote', label: 'Note' }, { key: 'timelineActivityDate', label: 'Activity Date' }];
             }
- 
-            container.innerHTML = ''; // Clear previous
-            fields.forEach(field => {
-                const wrapper = document.createElement('div');
-                // UPDATED: No more optional logic
-                const selectOptions = `<option value="">Select a column...</option>`;
-                
-                wrapper.innerHTML = `
-                    <label for="${field.key}" class="block text-sm font-medium text-gray-700">${field.label}</label>
-                    <select id="${field.key}" name="${field.key}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        ${selectOptions}
-                        ${headers.map(header => `<option value="${header}">${header}</option>`).join('')}
-                    </select>
-                    <p class="mt-1 text-xs text-gray-500">${field.desc}</p>
-                `;
-                
-                const selectEl = wrapper.querySelector('select');
-                
-                // Check if a saved mapping exists and is valid for these headers
-                const savedMapping = mappings[field.key];
-                if (savedMapping && headers.includes(savedMapping)) {
-                    selectEl.value = savedMapping;
-                } else {
-                    // If saved mapping isn't valid, clear it
-                    mappings[field.key] = '';
-                }
-
-                selectEl.addEventListener('change', (e) => {
-                    mappings[field.key] = e.target.value;
-                    // Save all mappings to localStorage on any change
-                    try {
-                        localStorage.setItem(MAPPINGS_STORAGE_KEY, JSON.stringify(mappings));
-                    } catch (error) {
-                        console.warn("Could not save mappings to localStorage:", error);
-                    }
-                    checkGenerateButtonState();
-                    // Update time estimate if riskTheme mapping changes (no longer needed, but harmless)
-                    if (field.key === 'riskTheme') {
-                        updateModelInfo();
-                    }
-                });
-                container.appendChild(wrapper);
+            container.innerHTML = '';
+            fields.forEach(f => {
+                const wrap = document.createElement('div');
+                wrap.innerHTML = `<label class="block text-sm font-medium text-gray-700">${f.label}</label><select id="${f.key}" class="mt-1 block w-full py-2 border rounded-md sm:text-sm"><option value="">Select...</option>${headers.map(h => `<option value="${h}">${h}</option>`).join('')}</select>`;
+                const sel = wrap.querySelector('select');
+                if (mappings[f.key] && headers.includes(mappings[f.key])) sel.value = mappings[f.key];
+                sel.addEventListener('change', e => { mappings[f.key] = e.target.value; localStorage.setItem(MAPPINGS_STORAGE_KEY, JSON.stringify(mappings)); checkGenerateButtonState(); });
+                container.appendChild(wrap);
             });
             container.classList.remove('hidden');
-            // Save mappings in case some were cleared
-            try {
-                localStorage.setItem(MAPPINGS_STORAGE_KEY, JSON.stringify(mappings));
-            } catch (error) {
-                console.warn("Could not save mappings to localStorage:", error);
-            }
-            checkGenerateButtonState(); // Re-check state after auto-populating
         }
 
-        /**
-         * Checks if all required mappings are set and enables/disables the generate button
-         */
         function checkGenerateButtonState() {
-            // UPDATED: All mappings in `requiredMappings` must be set.
-            const allRequiredMapped = requiredMappings.every(key => mappings[key] && mappings[key] !== '');
-            const apiKeyPresent = apiKeyInput.value.trim() !== '';
-            const modelSelected = modelSelectEl.value && MODEL_CONFIGS[modelSelectEl.value];
-            
-            // Only enable if API key, model, all required columns, and both files are present
-            generateBtn.disabled = !allRequiredMapped || !apiKeyPresent || !modelSelected || ctaData.length === 0 || timelineData.length === 0;
+            const valid = requiredMappings.every(k => mappings[k]) && apiKeyInput.value.trim() && modelSelectEl.value && ctaData.length && timelineData.length;
+            generateBtn.disabled = !valid;
         }
 
         /**
-         * Converts a currency string (e.g., "USD 5,514.00") to a number.
+         * UPDATED: Fixed date parsing for Excel Serial numbers (e.g. 46112)
          */
-        function parseARR(arrString) {
-            if (typeof arrString === 'number') {
-                return arrString;
+        function parseRobustDate(dateVal) {
+            if (dateVal instanceof Date) return dateVal;
+            if (dateVal === null || dateVal === undefined || dateVal === "") return null;
+            
+            let str = String(dateVal).split('[cite')[0].trim();
+            
+            // Fix for numeric strings from Excel (e.g. "46112")
+            if (/^\d+(\.\d+)?$/.test(str)) {
+                const num = parseFloat(str);
+                if (num > 3000 && num < 100000) { 
+                    return new Date(Math.round((num - 25569) * 86400 * 1000));
+                }
             }
-            if (typeof arrString !== 'string') {
-                return 0;
+
+            let d = new Date(str);
+            // If year is impossible (e.g. 46112) or browser failed on hyphens, try normalization
+            if (isNaN(d.getTime()) || d.getFullYear() > 3000) {
+                const normalized = str.replace(/-/g, "/");
+                const d2 = new Date(normalized);
+                if (!isNaN(d2.getTime()) && d2.getFullYear() < 3000) return d2;
             }
-            // Remove all non-numeric characters except the decimal point
-            const numString = arrString.replace(/[^0-9.-]+/g, "");
-            return parseFloat(numString) || 0;
+
+            return (isNaN(d.getTime()) || d.getFullYear() > 3000) ? null : d;
+        }
+
+        function parseARR(s) {
+            if (typeof s === 'number') return s;
+            return parseFloat(String(s).replace(/[^0-9.-]+/g, "")) || 0;
         }
         
-        const currencyFormatter = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0,
-        });
+        const curFmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 });
 
-        // --- NEW: Threat Ranking Logic ---
-
-        /**
-         * Calculates a "Threat Score" for each CTA based on ARR, Age, Renewal Date, and Priority.
-         * @param {Array} ctaData - The raw CTA data array.
-         * @returns {Array} - A sorted array of ACCOUNT objects with their scores and threat factors.
-         */
-        function calculateThreatRanking(ctaData) {
-            const now = new Date();
-            
-            // --- NEW: Consolidate by Account ---
-            const accountMap = new Map();
-            
-            // Pass 1: Group CTAs by account and find maxes
-            let maxArr = 0;
-            let maxAge = 0;
-            
-            ctaData.forEach(row => {
-                const companyName = row[mappings.companyName] || 'N/A';
-                if (companyName === 'N/A') return;
-
-                const arr = parseARR(row[mappings.arr]);
-                const age = parseFloat(row[mappings.ctaAge]) || 0;
-                
-                if (arr > maxArr) maxArr = arr;
-                if (age > maxAge) maxAge = age;
-                
-                if (!accountMap.has(companyName)) {
-                    accountMap.set(companyName, {
-                        companyName: companyName,
-                        arr: arr, // Use the first ARR found (should be consistent)
-                        arrFormatted: currencyFormatter.format(arr),
-                        ctas: []
-                    });
-                }
-                
-                accountMap.get(companyName).ctas.push({
-                    ctaName: row[mappings.ctaName] || 'N/A',
-                    age: age,
-                    priority: row[mappings.ctaPriority] || 'Low',
-                    renewalDate: row[mappings.renewalDate]
-                });
-            });
-
-            // Pass 2: Calculate scores for each ACCOUNT
-            const scoredThreats = [];
-            for (const account of accountMap.values()) {
-                // Find the "worst case" CTA for this account
-                let soonestRenewal = new Date('2999-12-31');
-                let highestPriority = 'Low';
-                let oldestAge = 0;
-                
-                account.ctas.forEach(cta => {
-                    // Find oldest age
-                    if (cta.age > oldestAge) oldestAge = cta.age;
-
-                    // Find highest priority
-                    const priorityVal = String(cta.priority).toLowerCase();
-                    if (priorityVal === 'high') {
-                        highestPriority = 'High';
-                    } else if (priorityVal === 'medium' && highestPriority !== 'High') {
-                        highestPriority = 'Medium';
-                    }
-
-                    // Find soonest renewal
-                    let renewalDate = new Date(cta.renewalDate);
-                    if (renewalDate instanceof Date && !isNaN(renewalDate.getTime())) {
-                        if (renewalDate < soonestRenewal) {
-                            soonestRenewal = renewalDate;
-                        }
-                    }
-                });
-                
-                // Use soonestRenewal if valid, otherwise set to N/A
-                const validRenewal = soonestRenewal.getFullYear() !== 2999;
-                const renewalDateForCalc = validRenewal ? soonestRenewal : null;
-                const renewalDateFormatted = validRenewal ? soonestRenewal.toLocaleDateString('en-US') : 'N/A';
-
-                // --- NEW: Calculate daysToRenewal for filtering ---
-                let daysToRenewal = Infinity;
-                if (renewalDateForCalc) {
-                    daysToRenewal = (renewalDateForCalc - now) / (1000 * 60 * 60 * 24);
-                }
-
-                // --- NEW: Filter for renewals in the next 12 months (0-365 days) ---
-                // We also include past-due renewals (daysToRenewal < 0)
-                if (daysToRenewal > 365) {
-                    continue; // Skip this account, it's not renewing soon enough
-                }
-                // --- END: New Filter ---
-
-
-                // --- Calculate Scores ---
-                // 1. ARR Score (0-1)
-                const arrScore = (maxArr > 0) ? (account.arr / maxArr) : 0;
-                
-                // 2. Age Score (0-1)
-                const ageScore = (maxAge > 0) ? (oldestAge / maxAge) : 0;
-
-                // 3. Renewal Score (0-1)
-                let renewalScore = 0;
-                if (renewalDateForCalc) {
-                    // const daysToRenewal = (renewalDateForCalc - now) / (1000 * 60 * 60 * 24); // MOVED UP
-                    
-                    if (daysToRenewal < 0) {
-                        renewalScore = 1.0; // Past due = max score
-                    } else if (daysToRenewal <= 90) { // 0-90 days
-                        renewalScore = 1.0 - (daysToRenewal / 90) * 0.5; 
-                    } else if (daysToRenewal <= 365) { // 91-365 days
-                        renewalScore = 0.5 - ((daysToRenewal - 90) / 275) * 0.5; 
-                    }
-                }
-
-                // 4. Priority Score (0-1)
-                let priorityScore = 0;
-                switch (highestPriority.toLowerCase()) {
-                    case 'high': priorityScore = 1.0; break;
-                    case 'medium': priorityScore = 0.6; break;
-                    case 'low': priorityScore = 0.2; break;
-                }
-
-                // Final Score: Renewal (40%), ARR (30%), Priority (20%), Age (10%)
-                const finalScore = (renewalScore * 0.40) + (arrScore * 0.30) + (priorityScore * 0.20) + (ageScore * 0.10);
-                
-                scoredThreats.push({
-                    ...account, // companyName, arr, arrFormatted
-                    ctaNames: account.ctas.map(c => c.ctaName), // NEW: list of CTA names
-                    finalScore,
-                    renewalDateFormatted: renewalDateFormatted,
-                    age: oldestAge, // Worst-case age
-                    priorityRaw: highestPriority // Worst-case priority
-                });
-            }
-
-            // Sort by final score, descending
-            scoredThreats.sort((a, b) => b.finalScore - a.finalScore);
-            
-            return scoredThreats;
-        }
-
-
-        // --- END: Threat Ranking Logic ---
-
-
-        // --- NEW: Function to get all themes (from data or AI prediction) ---
-        
-        // This is the list of themes the AI will be forced to choose from
-        const TARGET_THEMES = ['Product Risk', 'Support Risk', 'Engagement Risk', 'Containment Risk', 'Renewal', 'Churn', 'Other Risk'];
-
-        /**
-         * Loops through all CTAs and determines their risk theme.
-         * Uses the "Reason" field as truth, and calls Gemini API to predict if "Reason" is missing or invalid.
-         */
-        async function determineAllThemes(timelineMap, apiKey, modelConfig, currentApiCall, totalApiCalls) {
-            const { apiName, throttleDelay } = modelConfig;
-            const ctaDataWithThemes = [];
-            const riskThemeKey = mappings.riskTheme;
-            
-            const totalCTAs = ctaData.length; // For loader
-            
-            // --- UPDATED: Loader text ---
-            const loaderTextPrefix = `[Step 1/2]`;
-
+        async function determineAllThemes(timelineMap, apiKey, modelConfig) {
+            const TARGETS = ['Product Risk', 'Support Risk', 'Engagement Risk', 'Containment Risk', 'Renewal', 'Churn', 'Other Risk'];
+            const res = [];
             for (let i = 0; i < ctaData.length; i++) {
                 const row = ctaData[i];
                 const ctaName = row[mappings.ctaName];
-                let predictedTheme = 'Other Risk'; // Default
-                let themeSource = 'Predicted'; // Default
-                
-                // This counter is now just for UI, not for totalApiCalls
-                loaderText.textContent = `${loaderTextPrefix} Classifying theme ${i + 1} of ${totalCTAs} (${ctaName.substring(0, 20)})...`;
+                loaderText.textContent = `[Step 1/2] Classifying theme ${i + 1} of ${ctaData.length}...`;
 
-                // --- NEW: "Reason" vs. "Predicted" Logic ---
-                const reasonValue = row[riskThemeKey] ? String(row[riskThemeKey]).trim() : '';
-                
-                // Check if the reasonValue is one of our target themes
-                const matchingTheme = TARGET_THEMES.find(theme => theme.toLowerCase() === reasonValue.toLowerCase());
+                const reason = String(row[mappings.riskTheme] || '').trim();
+                const match = TARGETS.find(t => t.toLowerCase() === reason.toLowerCase());
 
-                if (matchingTheme) {
-                    // 1. Found a direct match in the "Reason" field
-                    predictedTheme = matchingTheme; // Use the properly-cased version
-                    themeSource = 'Reason';
-                    // We DO NOT call the AI, so we skip to the end of the loop
-                    
+                if (match) {
+                    res.push({ ...row, predictedTheme: match, themeSource: 'Reason' });
                 } else {
-                    // 2. "Reason" is blank or not a direct theme (e.g., "Value Realization")
-                    // We must call the AI to predict
-                    themeSource = 'Predicted';
-
-                    // Build context for the AI
-                    const notes = timelineMap.get(ctaName) || [];
-                    
-                    // --- UPDATED: Only get notes from the last 60 days ---
-                    const now = new Date();
-                    const sixtyDaysAgo = new Date(now);
-                    sixtyDaysAgo.setDate(now.getDate() - 60);
-                    const recentNotes = notes.filter(entry => entry.date >= sixtyDaysAgo);
-                    
-                    let timelineContext = recentNotes.map(entry => {
-                        const dateString = entry.date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
-                        return `[${dateString}]: ${entry.note}`;
-                    }).join('\n\n---\n\n');
-                    
-                    if (notes.length > recentNotes.length) {
-                        timelineContext += `\n\n...[Note: ${notes.length - recentNotes.length} older entries (beyond 60 days) exist but are not shown.]...`;
-                    }
-                    if (timelineContext.length === 0) {
-                        timelineContext = "No timeline entries.";
-                    }
-                    // --- END: Timeline weighting ---
-
-                    // Use the non-matching reasonValue as the hint
-                    const existingReason = reasonValue ? `Existing Reason (Hint): ${reasonValue}` : "";
-    
-                    const context = `
-                        CTA Name: ${ctaName}
-                        Company: ${row[mappings.companyName]}
-                        Renewal Date: ${row[mappings.renewalDate]}
-                        ARR: ${row[mappings.arr]}
-                        ${existingReason}
-                        
-                        Timeline Entries:
-                        ${timelineContext}
-                    `;
-                    
+                    const notes = (timelineMap.get(ctaName) || []).filter(n => n.date >= new Date(Date.now() - 60*86400000)).map(n => `[${n.date.toLocaleDateString()}]: ${n.note}`).join('\n');
                     try {
-                        const response = await callGeminiAPI(context, apiKey, apiName, THEME_PREDICTION_PROMPT, loaderText);
-                        const cleanedResponse = response.trim().replace(/\*\*/g, '');
-                        
-                        if (TARGET_THEMES.includes(cleanedResponse)) {
-                            predictedTheme = cleanedResponse;
-                        } else {
-                            console.warn(`AI returned unclassified theme: "${cleanedResponse}". Defaulting to "Other Risk".`);
-                            predictedTheme = 'Other Risk';
-                        }
-                    } catch (err) {
-                        console.error(`Failed to predict theme for ${ctaName}:`, err);
-                        predictedTheme = 'Other Risk';
+                        const theme = await callGeminiAPI(`CTA: ${ctaName}\nNotes:\n${notes || 'No notes'}`, apiKey, modelConfig.apiName, THEME_PREDICTION_PROMPT);
+                        const clean = theme.trim().replace(/\*\*/g, '');
+                        res.push({ ...row, predictedTheme: TARGETS.includes(clean) ? clean : 'Other Risk', themeSource: 'Predicted' });
+                    } catch (e) {
+                        res.push({ ...row, predictedTheme: 'Other Risk', themeSource: 'Predicted' });
                     }
-                    
-                    // --- Throttling only happens if we call the AI ---
-                    loaderText.textContent = `${loaderTextPrefix} Classifying theme ${i + 1} of ${totalCTAs}... Pausing for ${throttleDelay / 1000}s...`;
-                    await new Promise(res => setTimeout(res, throttleDelay));
+                    await new Promise(r => setTimeout(r, modelConfig.throttleDelay));
                 }
-                // --- END: "Reason" vs. "Predicted" Logic ---
+            }
+            return res;
+        }
 
-                // Add the new data to our new array
-                ctaDataWithThemes.push({
-                    ...row, // Spread all original data
-                    predictedTheme: predictedTheme,
-                    themeSource: themeSource // NEW: Add the source
+        async function generateReport() {
+            const apiKey = apiKeyInput.value.trim();
+            const modelConfig = MODEL_CONFIGS[modelSelectEl.value];
+            loader.classList.remove('hidden');
+            reportContainer.classList.add('hidden');
+            reportContent.innerHTML = '';
+            
+            try {
+                const timelineMap = new Map();
+                timelineData.forEach(row => {
+                    const d = parseRobustDate(row[mappings.timelineActivityDate]);
+                    if (row[mappings.timelineCtaName] && row[mappings.timelineNote] && d) {
+                        if (!timelineMap.has(row[mappings.timelineCtaName])) timelineMap.set(row[mappings.timelineCtaName], []);
+                        timelineMap.get(row[mappings.timelineCtaName]).push({ note: row[mappings.timelineNote], date: d });
+                    }
+                });
+                for (let arr of timelineMap.values()) arr.sort((a,b) => a.date - b.date);
+
+                ctaDataWithThemes = await determineAllThemes(timelineMap, apiKey, modelConfig);
+                
+                themeAggregates = {};
+                ctaDataWithThemes.forEach(row => {
+                    const t = row.predictedTheme;
+                    if (!themeAggregates[t]) themeAggregates[t] = { count: 0, companies: [], reasonCount: 0, predictedCount: 0 };
+                    themeAggregates[t].count++;
+                    themeAggregates[t].companies.push(row[mappings.companyName] || 'N/A');
+                    if (row.themeSource === 'Reason') themeAggregates[t].reasonCount++; else themeAggregates[t].predictedCount++;
                 });
 
-                // If we skipped the AI call, we still need a small pause to prevent UI freeze
-                if (themeSource === 'Reason') {
-                    await new Promise(res => setTimeout(res, 10)); // 10ms pause
-                }
-            }
-            
-            // We no longer track apiCallsMade, just return the data
-            return { ctaDataWithThemes };
-        }
+                renewalRisk = calculateRenewalRisk(ctaDataWithThemes);
+                rankedThreats = calculateThreatRanking(ctaData);
 
-        // --- DELETED generateThemeSummaries function ---
-        // This logic will be moved into renderExecutiveRollup
-        // and will use summaries generated in Loop 3.
-
-
-        /**
-         * NEW: Calculates theme counts from the new `ctaDataWithThemes` array.
-         */
-        function calculateRiskThemes(ctaDataWithThemes) {
-            const themeAggregates = {}; // NEW
-            for (const row of ctaDataWithThemes) {
-                const theme = row.predictedTheme; // Use the predicted theme
-                if (theme) {
-                    if (!themeAggregates[theme]) {
-                        // NEW: Add source counts
-                        themeAggregates[theme] = { count: 0, companies: [], reasonCount: 0, predictedCount: 0 };
-                    }
-                    themeAggregates[theme].count++;
-                    themeAggregates[theme].companies.push(row[mappings.companyName] || 'N/A');
+                ctaReportData = [];
+                for (let i = 0; i < ctaDataWithThemes.length; i++) {
+                    const row = ctaDataWithThemes[i];
+                    loaderText.textContent = `[Step 2/2] Summarizing ${i + 1} of ${ctaDataWithThemes.length}...`;
+                    const notes = (timelineMap.get(row[mappings.ctaName]) || []).filter(n => n.date >= new Date(Date.now() - 60*86400000));
+                    const context = notes.map(n => `[${n.date.toLocaleDateString()}]: ${n.note}`).join('\n');
                     
-                    // NEW: Increment source count
-                    if (row.themeSource === 'Reason') {
-                        themeAggregates[theme].reasonCount++;
-                    } else {
-                        themeAggregates[theme].predictedCount++;
+                    const metadata = {
+                        company: row[mappings.companyName] || 'N/A', csm: row[mappings.csmName] || 'N/A',
+                        fieldCto: row[mappings.fieldCtoName] || 'N/A', accountOwner: row[mappings.accountOwnerName] || 'N/A',
+                        priority: row[mappings.ctaPriority] || 'N/A', age: row[mappings.ctaAge] || 'N/A',
+                        renewal: parseRobustDate(row[mappings.renewalDate])?.toLocaleDateString() || 'N/A',
+                        arr: curFmt.format(parseARR(row[mappings.arr]))
+                    };
+
+                    let detail = "No recent entries.", brief = "No recent entries.";
+                    if (context) {
+                        detail = await callGeminiAPI(context, apiKey, modelConfig.apiName, SUMMARY_SYSTEM_PROMPT);
+                        brief = await callGeminiAPI(detail, apiKey, modelConfig.apiName, THEME_EVIDENCE_SUMMARY_PROMPT);
                     }
+                    row.themeAlignedSummary = brief;
+                    ctaReportData.push({ ctaName: row[mappings.ctaName], metadata, summary: detail });
+                    await new Promise(r => setTimeout(r, modelConfig.throttleDelay));
                 }
-            }
-            return themeAggregates; // NEW
+                
+                renderExecutiveRollup(themeAggregates, renewalRisk, rankedThreats, ctaDataWithThemes);
+                renderDetailedReport(ctaReportData);
+                
+                localStorage.setItem(REPORT_CACHE_KEY, reportContent.innerHTML);
+                localStorage.setItem(REPORT_CACHE_TIMESTAMP_KEY, new Date().toISOString());
+                reportContainer.classList.remove('hidden');
+                copyBtn.disabled = false; downloadBtn.disabled = false;
+            } catch (e) { showMessage(e.message, true); }
+            finally { loader.classList.add('hidden'); generateBtn.disabled = false; }
         }
 
-        /**
-         * NEW: Calculates renewal risk from the new `ctaDataWithThemes` array.
-         * UPDATED: Now consolidates by Account.
-         */
-        function calculateRenewalRisk(ctaDataWithThemes) {
-            // --- NEW: Consolidate by Account ---
-            const accountMap = new Map();
+        async function callGeminiAPI(text, apiKey, model, systemPrompt) {
+            const url = `${BASE_API_URL}${model}:generateContent?key=${apiKey}`;
+            const r = await fetch(url, { method: 'POST', body: JSON.stringify({ contents: [{ parts: [{ text }] }], systemInstruction: { parts: [{ text: systemPrompt }] } }) });
+            if (!r.ok) throw new Error(await r.text());
+            const j = await r.json();
+            return j.candidates[0].content.parts[0].text;
+        }
 
+        function calculateRenewalRisk(data) {
+            const res = { nearTermTotalArr: 0, nearTermClients: [], midTermTotalArr: 0, midTermClients: [] };
+            const ninety = new Date(Date.now() + 90 * 86400000);
+            const oneEighty = new Date(Date.now() + 180 * 86400000);
+            const accs = new Map();
+            data.forEach(row => {
+                const rd = parseRobustDate(row[mappings.renewalDate]);
+                if (!rd || rd > oneEighty) return;
+                const co = row[mappings.companyName];
+                if (!accs.has(co)) accs.set(co, { name: co, arr: parseARR(row[mappings.arr]), rd, ctas: [] });
+                accs.get(co).ctas.push(row[mappings.ctaName]);
+            });
+            accs.forEach(a => {
+                const item = { name: a.name, arrFormatted: curFmt.format(a.arr), renewalDateFormatted: a.rd.toLocaleDateString(), ctaNames: a.ctas, arr: a.arr };
+                if (a.rd < ninety) { res.nearTermTotalArr += a.arr; res.nearTermClients.push(item); }
+                else { res.midTermTotalArr += a.arr; res.midTermClients.push(item); }
+            });
+            res.nearTermTotalArrFormatted = curFmt.format(res.nearTermTotalArr);
+            res.midTermTotalArrFormatted = curFmt.format(res.midTermTotalArr);
+            return res;
+        }
+
+        function calculateThreatRanking(ctaData) {
             const now = new Date();
-            now.setHours(0, 0, 0, 0); // Normalize to start of today
-            
-            const ninetyDays = new Date(now);
-            ninetyDays.setDate(now.getDate() + 90);
-            
-            const oneEightyDays = new Date(now);
-            oneEightyDays.setDate(now.getDate() + 180);
-
-            for (const row of ctaDataWithThemes) {
-                // Only consider risky themes
-                const theme = row.predictedTheme;
-                // UPDATED: Added 'renewal' to the check so we don't filter out pure renewal risks
-                const isRisky = theme.toLowerCase().includes('risk') || theme.toLowerCase().includes('churn') || theme.toLowerCase().includes('renewal');
-                if (!isRisky) continue;
-
-                const renewalDateVal = row[mappings.renewalDate];
-                if (!renewalDateVal) continue;
-
-                let renewalDate;
-                if (renewalDateVal instanceof Date) {
-                    renewalDate = renewalDateVal;
-                } else {
-                    renewalDate = new Date(renewalDateVal);
-                }
-                if (isNaN(renewalDate.getTime())) continue; // Skip invalid dates
-                
-                // UPDATED: Removed "renewalDate < now" check. We want to see Past Due items in the 0-90 bucket.
-                if (renewalDate >= oneEightyDays) continue;
-                
-                const companyName = row[mappings.companyName] || 'N/A';
-                if (companyName === 'N/A') continue;
-                
+            const accountMap = new Map();
+            let maxArr = 0, maxAge = 0;
+            ctaData.forEach(row => {
+                const co = row[mappings.companyName] || 'N/A';
                 const arr = parseARR(row[mappings.arr]);
-
-                if (!accountMap.has(companyName)) {
-                    accountMap.set(companyName, {
-                        name: companyName,
-                        arr: arr,
-                        arrFormatted: currencyFormatter.format(arr),
-                        renewalDate: renewalDate,
-                        renewalDateFormatted: renewalDate.toLocaleDateString('en-US'),
-                        ctaNames: []
-                    });
-                }
-                // Add this CTA to the account's list
-                accountMap.get(companyName).ctaNames.push(row[mappings.ctaName] || 'N/A');
+                const age = parseFloat(row[mappings.ctaAge]) || 0;
+                if (arr > maxArr) maxArr = arr;
+                if (age > maxAge) maxAge = age;
+                if (!accountMap.has(co)) accountMap.set(co, { companyName: co, arr, arrFormatted: curFmt.format(arr), ctas: [] });
+                accountMap.get(co).ctas.push({ ctaName: row[mappings.ctaName], age, priority: row[mappings.ctaPriority], renewalDate: row[mappings.renewalDate] });
+            });
+            const res = [];
+            for (const a of accountMap.values()) {
+                let soonest = new Date('2999-12-31'), highP = 'Low', oldA = 0;
+                a.ctas.forEach(c => {
+                    if (c.age > oldA) oldA = c.age;
+                    const p = String(c.priority).toLowerCase();
+                    if (p === 'high') highP = 'High'; else if (p === 'medium' && highP !== 'High') highP = 'Medium';
+                    const rd = parseRobustDate(c.renewalDate);
+                    if (rd && rd < soonest) soonest = rd;
+                });
+                const valid = soonest.getFullYear() !== 2999;
+                const days = valid ? (soonest - now) / 86400000 : Infinity;
+                if (days > 365) continue;
+                let rS = valid ? (days < 0 ? 1.0 : (days <= 90 ? 1.0 - (days/90)*0.5 : 0.5 - ((days-90)/275)*0.5)) : 0;
+                const score = (rS * 0.40) + ((maxArr ? a.arr/maxArr : 0) * 0.30) + ((highP === 'High' ? 1.0 : (highP === 'Medium' ? 0.6 : 0.2)) * 0.20) + ((maxAge ? oldA/maxAge : 0) * 0.10);
+                res.push({ ...a, finalScore: score, age: oldA, priorityRaw: highP, ctaNames: a.ctas.map(c => c.ctaName), renewalDateFormatted: valid ? soonest.toLocaleDateString() : 'N/A' });
             }
-
-            // --- Now, iterate the map and sort into buckets ---
-            const nearTermRisks = [];
-            const midTermRisks = [];
-            let nearTermTotalArr = 0;
-            let midTermTotalArr = 0;
-
-            for (const account of accountMap.values()) {
-                // UPDATED: Logic now captures anything less than 90 days (including past due)
-                if (account.renewalDate < ninetyDays) {
-                    nearTermTotalArr += account.arr;
-                    nearTermRisks.push(account);
-                } else if (account.renewalDate >= ninetyDays && account.renewalDate < oneEightyDays) {
-                    midTermTotalArr += account.arr;
-                    midTermRisks.push(account);
-                }
-            }
-
-            // Sort by ARR descending
-            nearTermRisks.sort((a, b) => b.arr - a.arr);
-            midTermRisks.sort((a, b) => b.arr - a.arr);
-
-            return {
-                nearTermTotalArr,
-                nearTermTotalArrFormatted: currencyFormatter.format(nearTermTotalArr),
-                nearTermClients: nearTermRisks,
-                midTermTotalArr,
-                midTermTotalArrFormatted: currencyFormatter.format(midTermTotalArr),
-                midTermClients: midTermRisks,
-            };
+            return res.sort((a,b) => b.finalScore - a.finalScore);
         }
 
         /**
-         * Renders the data-driven executive rollup at the top of the report.
-         * MODIFIED: Now accepts themeCounts, renewalRisk, and rankedThreats as arguments.
-         * UPDATED: Now generates tables instead of lists.
+         * UPDATED: Restored complex nested evidence list structure
          */
-        function renderExecutiveRollup(themeAggregates, renewalRisk, rankedThreats, ctaDataWithThemes) {
+        function renderExecutiveRollup(themes, renewal, threats, data) {
+            let threatRows = threats.slice(0, 10).map((t, i) => `<tr><td class="td-rank">#${i+1}</td><td class="td-account">${t.companyName}</td><td>${t.ctaNames.length > 1 ? `<ul class="td-cta">${t.ctaNames.map(n=>`<li>${n}</li>`).join('')}</ul>` : t.ctaNames[0]}</td><td class="td-arr">${t.arrFormatted}</td><td>${t.renewalDateFormatted}</td><td>${t.age}</td><td>${t.priorityRaw}</td></tr>`).join('');
             
-            // 1. Build Threat Ranking HTML
-            let threatHtml = `
-                <table class="rollup-table">
-                    <thead>
-                        <tr>
-                            <th class="th-rank">Rank</th>
-                            <th class="th-account">Account</th>
-                            <th class="th-cta">CTA(s)</th>
-                            <th class="th-arr">ARR</th>
-                            <th class="th-date">Renews</th>
-                            <th class="th-age">Max Age</th>
-                            <th class="th-priority">Max Priority</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-            const topThreats = rankedThreats.slice(0, 10); // Show top 10
-
-            if (topThreats.length > 0) {
-                topThreats.forEach((client, index) => {
-                    const ctaListHtml = client.ctaNames.length > 1 
-                        ? `<ul class="td-cta">${client.ctaNames.map(name => `<li>${name}</li>`).join('')}</ul>`
-                        : client.ctaNames[0] || 'N/A';
-
-                    threatHtml += `
-                        <tr>
-                            <td class="td-rank">#${index + 1}</td>
-                            <td class="td-account">${client.companyName}</td>
-                            <td>${ctaListHtml}</td>
-                            <td class="td-arr">${client.arrFormatted}</td>
-                            <td>${client.renewalDateFormatted}</td>
-                            <td>${client.age}</td>
-                            <td>${client.priorityRaw}</td>
-                        </tr>
-                    `;
+            let themeRows = Object.entries(themes).sort((a,b) => b[1].count - a[1].count).map(([t, v]) => {
+                const accountsForTheme = new Map();
+                data.filter(d => d.predictedTheme === t).forEach(d => {
+                    const co = d[mappings.companyName] || 'N/A';
+                    if (!accountsForTheme.has(co)) accountsForTheme.set(co, []);
+                    accountsForTheme.get(co).push(d);
                 });
-            } else {
-                threatHtml += '<tr><td colspan="7">No threat data to display.</td></tr>';
-            }
-            threatHtml += '</tbody></table>';
-
-
-            // 2. Build Risk Theme HTML
-            let themesHtml = `
-                <table class="rollup-table">
-                    <thead>
-                        <tr>
-                            <th class="th-theme">Theme</th>
-                            <th class="th-summary">Account-Specific Evidence</th>
-                            <th class="th-accounts">All Accounts</th>
-                            <th class="th-count">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-            const sortedThemes = Object.entries(themeAggregates).sort(([, a], [, b]) => b.count - a.count); // NEW
-            if (sortedThemes.length > 0) {
-                for (const [theme, data] of sortedThemes) {
-                    const { count, companies, summary, reasonCount, predictedCount } = data; // NEW: Get source counts
-                    
-                    const uniqueCompanies = [...new Set(companies)];
-                    const displayedCompanies = uniqueCompanies.join(', ');
-                    
-                    // NEW: Build count HTML with breakdown
-                    const countHtml = `
-                        ${count}
-                        <span class="count-breakdown">
-                            (${reasonCount} Reason, ${predictedCount} Predicted)
-                        </span>
-                    `;
-
-                    // --- NEW: Build Account-Specific Evidence List ---
-                    const ctasForThisTheme = ctaDataWithThemes.filter(cta => cta.predictedTheme === theme);
-                    
-                    // Group CTAs by account
-                    const accountsForThisTheme = new Map();
-                    ctasForThisTheme.forEach(cta => {
-                        const companyName = cta[mappings.companyName] || 'N/A';
-                        if (!accountsForThisTheme.has(companyName)) {
-                            accountsForThisTheme.set(companyName, []);
-                        }
-                        accountsForThisTheme.get(companyName).push(cta);
+                
+                let evidenceHtml = '<ol class="td-theme-summary-ol">';
+                [...accountsForTheme.entries()].sort((a,b) => a[0].localeCompare(b[0])).forEach(([acc, ctas]) => {
+                    evidenceHtml += `<li><strong>${acc}</strong><ul>`;
+                    ctas.forEach(c => {
+                        evidenceHtml += `<li>${c[mappings.ctaName]}<ul><li><strong>Source:</strong> ${c.themeSource}</li><li>${c.themeAlignedSummary}</li></ul></li>`;
                     });
+                    evidenceHtml += '</ul></li>';
+                });
+                evidenceHtml += '</ol>';
 
-                    let summaryHtml = '<ol class="td-theme-summary-ol">';
-                    // Sort accounts alphabetically
-                    const sortedAccounts = [...accountsForThisTheme.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+                return `<tr><td class="td-theme">${t}</td><td class="td-theme-summary">${evidenceHtml}</td><td class="td-theme-accounts">${[...new Set(v.companies)].join(', ')}</td><td class="td-count">${v.count}<span class="count-breakdown">(${v.reasonCount} Reason, ${v.predictedCount} Predicted)</span></td></tr>`;
+            }).join('');
 
-                    for (const [accountName, ctas] of sortedAccounts) {
-                        summaryHtml += `<li><strong>${accountName}</strong>`;
-                        summaryHtml += '<ul>'; // Start CTA list
-                        
-                        // Sort CTAs alphabetically
-                        ctas.sort((a, b) => (a[mappings.ctaName] || '').localeCompare(b[mappings.ctaName] || ''));
-
-                        ctas.forEach(cta => {
-                            summaryHtml += `<li>${cta[mappings.ctaName]}<ul>`; // Start details list
-                            summaryHtml += `<li><strong>Source:</strong> ${cta.themeSource}</li>`;
-                            
-                            // Use the summary generated in Loop 3. This is now the *brief* summary.
-                            let ctaSummary = (cta.themeAlignedSummary || 'Summary could not be generated.').trim();
-                            // REMOVED: Redundant <p> tag stripping
-                            // if (ctaSummary.startsWith('<p>') && ctaSummary.endsWith('</p>')) {
-                            //     ctaSummary = ctaSummary.substring(3, ctaSummary.length - 4);
-                            // }
-
-                            summaryHtml += `<li>${ctaSummary}</li>`;
-                            summaryHtml += '</ul></li>'; // End details list & CTA item
-                        });
-                        summaryHtml += '</ul></li>'; // End CTA list & Account item
-                    }
-                    summaryHtml += '</ol>';
-                    // --- END: New Evidence List ---
-
-                    themesHtml += `
-                        <tr>
-                            <td class="td-theme">${theme}</td>
-                            <td class="td-theme-summary">${summaryHtml || '<ul><li>No summary generated.</li></ul>'}</td>
-                            <td class="td-theme-accounts">${displayedCompanies}</td>
-                            <td class="td-count">${countHtml}</td>
-                        </tr>
-                    `;
-                }
-            } else {
-                themesHtml += '<tr><td colspan="4">No risk themes identified.</td></tr>';
-            }
-            themesHtml += '</tbody></table>';
-
-
-            // 3. Build Near-Term Renewal HTML
-            let nearTermHtml = `
-                <table class="rollup-table">
-                    <thead>
-                        <tr>
-                            <th class="th-account">Account</th>
-                            <th class="th-cta">CTA(s)</th>
-                            <th class="th-arr">ARR</th>
-                            <th class="th-date">Renews</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-            if (renewalRisk.nearTermClients.length > 0) {
-                for (const client of renewalRisk.nearTermClients) {
-                    const ctaListHtml = client.ctaNames.length > 1 
-                        ? `<ul class="td-cta">${client.ctaNames.map(name => `<li>${name}</li>`).join('')}</ul>`
-                        : client.ctaNames[0] || 'N/A';
-
-                    nearTermHtml += `
-                        <tr>
-                            <td class="td-account">${client.name}</td>
-                            <td>${ctaListHtml}</td>
-                            <td class="td-arr">${client.arrFormatted}</td>
-                            <td>${client.renewalDateFormatted}</td>
-                        </tr>
-                    `;
-                }
-            } else {
-                nearTermHtml += '<tr><td colspan="4">No immediate renewal risks identified.</td></tr>';
-            }
-            nearTermHtml += `
-                    <tr class="total-row">
-                        <td colspan="2" class="total-label">Total Near-Term Risk:</td>
-                        <td colspan="2" class="total-value">${renewalRisk.nearTermTotalArrFormatted}</td>
-                    </tr>
-                </tbody></table>
-            `;
-
-            // 4. Build Mid-Term Renewal HTML
-            let midTermHtml = `
-                <table class="rollup-table">
-                    <thead>
-                        <tr>
-                            <th class="th-account">Account</th>
-                            <th class="th-cta">CTA(s)</th>
-                            <th class="th-arr">ARR</th>
-                            <th class="th-date">Renews</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-            if (renewalRisk.midTermClients.length > 0) {
-                for (const client of renewalRisk.midTermClients) {
-                    const ctaListHtml = client.ctaNames.length > 1 
-                        ? `<ul class="td-cta">${client.ctaNames.map(name => `<li>${name}</li>`).join('')}</ul>`
-                        : client.ctaNames[0] || 'N/A';
-                        
-                    midTermHtml += `
-                        <tr>
-                            <td class="td-account">${client.name}</td>
-                            <td>${ctaListHtml}</td>
-                            <td class="td-arr">${client.arrFormatted}</td>
-                            <td>${client.renewalDateFormatted}</td>
-                        </tr>
-                    `;
-                }
-            } else {
-                midTermHtml += '<tr><td colspan="4">No mid-term renewal risks identified.</td></tr>';
-            }
-            midTermHtml += `
-                    <tr class="total-row">
-                        <td colspan="2" class="total-label">Total Mid-Term Risk:</td>
-                        <td colspan="2" class="total-value">${renewalRisk.midTermTotalArrFormatted}</td>
-                    </tr>
-                </tbody></table>
-            `;
-
-            // 5. Combine all sections
-            const rollupHtml = `
+            const wrap = (h, c) => `<div class="rollup-section"><h2>${h}</h2>${c}</div>`;
+            
+            reportContent.innerHTML = `
                 <div id="executive-rollup-content">
                     <h1 class="text-3xl font-bold mb-4">Executive Roll-up</h1>
-                    
-                    <!-- NEW: Top Threat Ranking Section -->
-                    <div class="rollup-grid">
-                        <div class="rollup-section md:col-span-2">
-                            <h2>Top Renewal Threat Ranking</h2>
-                            ${threatHtml}
-                        </div>
-                    </div>
-
-                    <div class="rollup-grid mt-6"> 
-                        <div class="rollup-section md:col-span-2"> <!-- Made full-width -->
-                            <h2>Risk Theme Analysis</h2>
-                            ${themesHtml}
-                        </div>
-                    </div>
+                    <div class="rollup-section mb-6"><h2>Top Renewal Threat Ranking</h2><table class="rollup-table"><thead><tr><th class="th-rank">Rank</th><th>Account</th><th>CTA(s)</th><th class="th-arr">ARR</th><th>Renews</th><th>Max Age</th><th>Max Priority</th></tr></thead><tbody>${threatRows}</tbody></table></div>
+                    <div class="rollup-section mb-6"><h2>Risk Theme Analysis</h2><table class="rollup-table"><thead><tr><th class="th-theme">Theme</th><th>Account-Specific Evidence</th><th class="th-accounts">All Accounts</th><th class="th-count">Total</th></tr></thead><tbody>${themeRows}</tbody></table></div>
                     <div class="rollup-grid mt-6">
-                        <div class="rollup-section">
-                            <h2>Risk Accounts with Upcoming Renewals (0-90 Days)</h2>
-                            ${nearTermHtml}
-                        </div>
-                        <div class="rollup-section">
-                            <h2>Risk Accounts with Upcoming Renewals (91-180 Days)</h2>
-                            ${midTermHtml}
-                        </div>
+                        <div class="rollup-section"><h2>Risk Accounts with Upcoming Renewals (0-90 Days)</h2><table class="rollup-table"><thead><tr><th>Account</th><th>ARR</th></tr></thead><tbody>${renewal.nearTermClients.map(c=>`<tr><td>${c.name}</td><td class="td-arr">${c.arrFormatted}</td></tr>`).join('')}<tr class="total-row"><td class="total-label">Total Near-Term Risk:</td><td class="total-value">${renewal.nearTermTotalArrFormatted}</td></tr></tbody></table></div>
+                        <div class="rollup-section"><h2>Risk Accounts with Upcoming Renewals (91-180 Days)</h2><table class="rollup-table"><thead><tr><th>Account</th><th>ARR</th></tr></thead><tbody>${renewal.midTermClients.map(c=>`<tr><td>${c.name}</td><td class="td-arr">${c.arrFormatted}</td></tr>`).join('')}<tr class="total-row"><td class="total-label">Total Mid-Term Risk:</td><td class="total-value">${renewal.midTermTotalArrFormatted}</td></tr></tbody></table></div>
                     </div>
                 </div>
             `;
-            
-            // Prepend this to the report content
-            reportContent.innerHTML = rollupHtml;
-        }
-
-
-        /**
-         * Main function to process data and generate the report
-         */
-        async function generateReport() {
-            // Re-check API key just in case
-            const apiKey = apiKeyInput.value.trim();
-            if (!apiKey) {
-                showMessage('Please enter your Gemini API key in Step 1.', true);
-                return;
-            }
-            
-            // Get model config for processing
-            const modelId = modelSelectEl.value;
-            const modelConfig = MODEL_CONFIGS[modelId];
-            if (!modelConfig) {
-                showMessage('Please select a valid API model in Step 2.', true);
-                return;
-            }
-            const { apiName, throttleDelay } = modelConfig;
-
-            loaderText.textContent = 'Preparing data...';
-            loader.classList.remove('hidden');
-            reportContainer.classList.add('hidden');
-            cacheLoaderEl.classList.add('hidden'); // NEW: Hide cache loader
-            generateBtn.disabled = true;
-            reportContent.innerHTML = ''; // Clear previous report
-
-            // --- NEW: Reset global report data ---
-            rankedThreats = [];
-            themeAggregates = {};
-            renewalRisk = {};
-            ctaReportData = [];
-            ctaDataWithThemes = []; // NEW: Reset global ctaDataWithThemes
-            downloadBtn.disabled = true; // UPDATED: Disable download button
-            copyBtn.disabled = true; // Disable until report is done
-
-            try {
-                // Estimate total API calls
-                let currentApiCall = 0; // We will no longer estimate total, just count up.
-
-                // 1. Create a map of timeline notes (Fast, sync)
-                const timelineMap = new Map();
-                timelineData.forEach(row => {
-                    const ctaName = row[mappings.timelineCtaName];
-                    const note = row[mappings.timelineNote];
-                    const dateVal = row[mappings.timelineActivityDate]; // NEW
-                    
-                    if (ctaName && note && dateVal) { // NEW: Check for dateVal
-                        let dateObj = new Date(dateVal);
-                        // Fix for Excel date objects
-                        if (!(dateObj instanceof Date) || isNaN(dateObj.getTime())) {
-                            dateObj = new Date(dateVal);
-                        }
-
-                        if (isNaN(dateObj.getTime())) {
-                            console.warn(`Invalid activity date for ${ctaName}: ${dateVal}`);
-                            return; // Skip if date is invalid
-                        }
-
-                        if (!timelineMap.has(ctaName)) {
-                            timelineMap.set(ctaName, []);
-                        }
-                        // NEW: Push an object with note and date
-                        timelineMap.get(ctaName).push({ note, date: dateObj });
-                    }
-                });
-                
-                // --- NEW: Sort timeline entries by date ---
-                loaderText.textContent = 'Sorting timeline entries...';
-                for (let notesArray of timelineMap.values()) {
-                    notesArray.sort((a, b) => a.date - b.date); // Sorts oldest to newest
-                }
-
-                // --- NEW: Sort ctaData by ctaName for linear processing ---
-                loaderText.textContent = 'Sorting CTA data...';
-                ctaData.sort((a, b) => (a[mappings.ctaName] || '').localeCompare(b[mappings.ctaName] || ''));
-
-
-                // 2. NEW: Loop 1 - Determine all themes (Async API calls)
-                // UPDATED: Store result in global variable
-                const themeResult = await determineAllThemes(
-                    timelineMap, apiKey, modelConfig, currentApiCall, null // Pass null for totalApiCalls
-                );
-                ctaDataWithThemes = themeResult.ctaDataWithThemes;
-                
-                // 3. Calculate risk data (Fast, sync)
-                loaderText.textContent = 'Calculating risk rollup...';
-                // --- NEW: Assign to global vars ---
-                themeAggregates = calculateRiskThemes(ctaDataWithThemes);
-                renewalRisk = calculateRenewalRisk(ctaDataWithThemes);
-                rankedThreats = calculateThreatRanking(ctaData);
-                
-                // 4. NEW: Loop 2 - Generate AI summaries for each theme (DELETED)
-                /*
-                themeAggregates = await generateThemeSummaries(
-                    themeAggregates, ctaDataWithThemes, timelineMap, apiKey, modelConfig, loaderText // NEW: Passed timelineMap
-                );
-                */
-
-                // 5. Render the Executive Rollup (Fast, sync) - MOVED TO END
-                // renderExecutiveRollup(themeAggregates, renewalRisk, rankedThreats, ctaDataWithThemes);
-
-                // 6. NEW: Loop 2 - Process each CTA for *detailed* and *brief* summaries
-                // ctaReportData is already global
-                const totalCTAs = ctaDataWithThemes.length;
-                let processedCount = 0;
-                
-                // --- UPDATED: Loader text ---
-                const loaderTextPrefix = `[Step 2/2]`;
- 
-                for (const row of ctaDataWithThemes) { // Loop over the NEW array
-                    const ctaName = row[mappings.ctaName];
-                    if (!ctaName) continue; // Should not happen, but good check
-
-                    processedCount++;
-                    // --- UPDATED: "Step 2/2" ---
-                    loaderText.textContent = `${loaderTextPrefix} Analyzing CTA ${processedCount} of ${totalCTAs} (${ctaName.substring(0, 20)})... (1/2 Detail)`;
-
-                    const metadata = {
-                        company: row[mappings.companyName] || 'N/A',
-                        csm: row[mappings.csmName] || 'N/A',
-                        fieldCto: row[mappings.fieldCtoName] || 'N/A', // NEW
-                        accountOwner: row[mappings.accountOwnerName] || 'N/A', // NEW
-                        priority: row[mappings.ctaPriority] || 'N/A', // NEW
-                        age: row[mappings.ctaAge] || 'N/A', // NEW
-                        renewal: (row[mappings.renewalDate] instanceof Date) 
-                            ? row[mappings.renewalDate].toLocaleDateString('en-US') 
-                            : (new Date(row[mappings.renewalDate]).toLocaleDateString('en-US') || 'N/A'),
-                        arr: currencyFormatter.format(parseARR(row[mappings.arr])),
-                    };
-
-                    const notes = timelineMap.get(ctaName) || [];
-                    
-                    // --- UPDATED: Only get notes from the last 60 days ---
-                    const now = new Date();
-                    const sixtyDaysAgo = new Date(now);
-                    sixtyDaysAgo.setDate(now.getDate() - 60);
-                    const recentNotes = notes.filter(entry => entry.date >= sixtyDaysAgo);
-
-                    let fullTimelineText = recentNotes.map(entry => {
-                        const dateString = entry.date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
-                        return `[${dateString}]: ${entry.note}`;
-                    }).join('\n\n---\n\n');
-                    
-                    if (notes.length > recentNotes.length) {
-                        fullTimelineText += `\n\n...[Note: ${notes.length - recentNotes.length} older entries (beyond 60 days) exist but are not shown.]...`;
-                    }
-                    // --- END: Timeline weighting ---
-
-                    let summary;
-                    let briefSummary = "No summary generated."; // NEW: Default brief summary
- 
-                    if (recentNotes.length > 0) { // --- UPDATED: Check recentNotes.length ---
-                        try {
-                            // --- (1/2) Get Detailed Summary ---
-                            summary = await callGeminiAPI(fullTimelineText, apiKey, apiName, SUMMARY_SYSTEM_PROMPT, loaderText); 
-                            
-                            // --- (2/2) Get Brief Summary ---
-                            loaderText.textContent = `${loaderTextPrefix} Analyzing CTA ${processedCount} of ${totalCTAs} (${ctaName.substring(0, 20)})... (2/2 Brevity)`;
-                            // We pass the *detailed summary* we just got to the new prompt
-                            briefSummary = await callGeminiAPI(summary, apiKey, apiName, THEME_EVIDENCE_SUMMARY_PROMPT, loaderText);
-
-                        } catch (err) {
-                            console.error(`Failed to summarize ${ctaName}:`, err);
-                            
-                            // --- UPDATED: Better Error Handling ---
-                            let userError = "Error: Could not generate summary.";
-                            if (err.message.includes('401')) {
-                                userError = "Error: Invalid API Key.";
-                            } else if (err.message.includes('429')) {
-                                userError = "Error: API rate limit hit. Retries failed.";
-                            } else if (err.message.includes('finish reason: SAFETY')) {
-                                userError = "Error: Blocked by safety settings.";
-                            }
-
-                            summary = `<p style="color: #D9534F; font-weight: bold;">${userError}</p><p style="font-size: 12px; color: #666;">Details: ${err.message}</p>`;
-                            briefSummary = "Error generating summary."; // NEW: Set brief summary on error
-                        }
-                    } else {
-                        // --- UPDATED: More specific message ---
-                        summary = "No timeline entries found for this CTA in the last 60 days.";
-                        briefSummary = "No recent timeline entries."; // NEW: Set brief summary
-                    }
-                    
-                    // --- NEW: Store the *brief* summary for the rollup table ---
-                    row.themeAlignedSummary = briefSummary; 
-
-                    // --- Store the *detailed* summary for the detailed report ---
-                    ctaReportData.push({ ctaName, metadata, summary });
-
-                    // --- UPDATED THROTTLING ---
-                    // Always pause after *every* call block.
-                    // --- UPDATED: "Step 2/2" ---
-                    loaderText.textContent = `${loaderTextPrefix} Analyzing CTA ${processedCount} of ${totalCTAs}... Pausing for ${throttleDelay / 1000}s...`;
-                    await new Promise(res => setTimeout(res, throttleDelay));
-                }
-                
-                // 7. Render the Executive Rollup (MOVED HERE)
-                // Now it has access to ctaDataWithThemes which contains the summaries
-                loaderText.textContent = 'Finalizing report...';
-                await new Promise(res => setTimeout(res, 50)); // Short pause for UI update
-                // UPDATED: Pass global ctaDataWithThemes
-                renderExecutiveRollup(themeAggregates, renewalRisk, rankedThreats, ctaDataWithThemes);
-
-                // 8. Render the final *detailed* report (appends to the rollup)
-                renderDetailedReport(ctaReportData);
-                
-                // --- NEW: Save to localStorage ---
-                try {
-                    localStorage.setItem(REPORT_CACHE_KEY, reportContent.innerHTML);
-                    localStorage.setItem(REPORT_CACHE_TIMESTAMP_KEY, new Date().toISOString());
-                } catch (cacheErr) {
-                    console.warn("Could not save report to localStorage:", cacheErr);
-                    showMessage('Report generated, but could not save to cache.', true);
-                }
- 
-                reportContainer.classList.remove('hidden');
-                showMessage('Report generated successfully!', false);
-                downloadBtn.disabled = false; // UPDATED: Enable download
-                copyBtn.disabled = false; // NEW: Enable copy
- 
-            } catch (error) {
-                console.error("Error generating report:", error);
-                showMessage(`An error occurred while generating the report. ${error.message}`, true);
-            } finally {
-                loader.classList.add('hidden');
-                generateBtn.disabled = false;
-            }
         }
 
         /**
-         * Calls the Gemini API with exponential backoff
-         * MODIFIED: Now accepts a systemPrompt argument and loaderText element
+         * UPDATED: Fully restored all 7 metadata points in the detailed summaries
          */
-        async function callGeminiAPI(text, apiKey, modelApiName, systemPrompt, loaderText, retries = 3, delay = 1000) {
-            const apiUrlWithKey = `${BASE_API_URL}${modelApiName}:generateContent?key=${apiKey}`;
-            
-            const payload = {
-                contents: [{
-                    role: "user",
-                    parts: [{ text: text }]
-                }],
-                systemInstruction: {
-                    parts: [{ text: systemPrompt }] // Use the passed-in prompt
-                }
-            };
-
-            for (let i = 0; i < retries; i++) {
-                try {
-                    const response = await fetch(apiUrlWithKey, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        let errorBody = "";
-                        try {
-                            const errorJson = await response.json();
-                            errorBody = errorJson.error?.message || JSON.stringify(errorJson);
-                        } catch (e) {
-                            try {
-                                errorBody = await response.text();
-                            } catch (textErr) {
-                                console.error("Could not parse error response body:", textErr);
-                                errorBody = "Could not parse error response body.";
-                            }
-                        }
-                        if (!errorBody) {
-                            errorBody = "No additional error details provided by the server.";
-                        }
-                        // --- UPDATED: Pass status code in error ---
-                        throw new Error(`API Error: ${response.status} ${response.statusText}. Details: ${errorBody}`);
-                    }
-
-                    const result = await response.json();
-                    
-                    if (result.candidates && result.candidates[0].content && result.candidates[0].content.parts[0].text) {
-                        return result.candidates[0].content.parts[0].text;
-                    } else {
-                        const errorPart = result.candidates?.[0]?.finishReason;
-                        if(errorPart) {
-                            throw new Error(`API finished with reason: ${errorPart}. Check safety settings.`);
-                        }
-                        throw new Error("Invalid API response structure.");
-                    }
-                } catch (error) {
-                    // --- UPDATED: Smarter retry logic ---
-                    console.error(`API call attempt ${i + 1} failed:`, error.message);
-                    if (i === retries - 1) throw error; // Re-throw last error
-
-                    let retryDelay = delay * Math.pow(2, i); // Standard backoff (1s, 2s, 4s)
-                    
-                    // Check for 429 (Rate Limit)
-                    if (error.message.includes('429')) {
-                        // Use a much larger backoff for rate limits
-                        retryDelay = (delay + 10000) * Math.pow(2, i); // e.g., 11s, 22s, 44s
-                        console.warn(`Rate limit hit. Retrying in ${retryDelay / 1000}s...`);
-                        // Update loader text to inform user
-                        if (loaderText) { // Check if loaderText was passed
-                            loaderText.textContent = `API rate limit hit. Retrying in ${retryDelay / 1000}s...`;
-                        }
-                    } else {
-                        if (loaderText) { // Check if loaderText was passed
-                            loaderText.textContent = `API call failed. Retrying in ${retryDelay / 1000}s...`;
-                        }
-                    }
-                    
-                    await new Promise(res => setTimeout(res, retryDelay));
-                }
-            }
-        }
-
-        /**
-         * Renders the final HTML report
-         * RENAMED to renderDetailedReport
-         */
-        function renderDetailedReport(reportData) {
-            
-            // Sort by company name, then CTA name
-            // This is now redundant since we sort ctaData, but it's harmless
-            // and guarantees order if we change logic.
-            reportData.sort((a, b) => {
-                const companyA = a.metadata.company.toLowerCase();
-                const companyB = b.metadata.company.toLowerCase();
-                if (companyA < companyB) return -1;
-                if (companyA > companyB) return 1;
-                
-                const ctaA = a.ctaName.toLowerCase();
-                const ctaB = b.ctaName.toLowerCase();
-                if (ctaA < ctaB) return -1;
-                if (ctaA > ctaB) return 1;
-                
-                return 0;
-            });
-
-            let tableRows = '';
-            reportData.forEach(item => {
-                // Convert Gemini's markdown-like response to HTML
-                const summaryHtml = item.summary
-                    .trim()
-                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
-                    .replace(/Risks:/g, '<h4>Risks:</h4>')
-                    .replace(/Issues:/g, '<h4>Issues:</h4>')
-                    .replace(/Action Items:/g, '<h4>Action Items:</h4>')
-                    
-                    // Convert bullet points to <li> tags
-                    .replace(/\* (.*)/g, '<li>$1</li>')
-                    
-                    // Wrap contiguous <li> blocks in <ul> tags
-                    .replace(/(<li>.*<\/li>(?:\n<li>.*<\/li>)*)/g, '<ul>$1</ul>')
-                    
-                    // Wrap "None identified." in <p> tags if it follows a heading
-                    .replace(/(<h4>.*<\/h4>\n)(No specific risks, issues, or action items identified\.)/g, '$1<p>$2</p>')
-                    
-                    // Remove all newlines to tighten up the HTML structure
-                    .replace(/\n/g, '');
-                
-                const metadataHtml = `
-                    <li><strong>CSM:</strong> ${item.metadata.csm}</li>
-                    <li><strong>Field CTO:</strong> ${item.metadata.fieldCto}</li> <!-- NEW -->
-                    <li><strong>Account Owner:</strong> ${item.metadata.accountOwner}</li> <!-- NEW -->
-                    <li><strong>Priority:</strong> ${item.metadata.priority}</li> <!-- NEW -->
-                    <li><strong>Age:</strong> ${item.metadata.age} days</li> <!-- NEW -->
-                    <li><strong>Renewal:</strong> ${item.metadata.renewal}</li>
-                    <li><strong>ARR:</strong> ${item.metadata.arr}</li>
-                `;
-
-                tableRows += `
-                    <div class="report-item">
-                        <div class="report-item-header">
-                            <div class="report-item-title">
-                                <h2>${item.metadata.company}</h2>
-                                <h3>${item.ctaName}</h3>
-                            </div>
-                            <ul class="report-item-metadata">
-                                ${metadataHtml}
-                            </ul>
-                        </div>
-                        <div class="summary-content">
-                            ${summaryHtml.includes('<p') || summaryHtml.includes('<ul>') || summaryHtml.includes('<h4>') ? summaryHtml : `<p>${summaryHtml}</p>`}
-                        </div>
+        function renderDetailedReport(data) {
+            let html = `<h1 class="text-3xl font-bold mt-8">Detailed CTA Summaries</h1>`;
+            data.sort((a,b) => a.metadata.company.localeCompare(b.metadata.company)).forEach(item => {
+                const s = item.summary.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/(Risks|Issues|Action Items):/g, '<h4>$1:</h4>').replace(/\* (.*)/g, '<li>$1</li>').replace(/(<li>.*<\/li>(\n<li>.*<\/li>)*)/g, '<ul>$1</ul>').replace(/\n/g, '');
+                html += `<div class="report-item">
+                    <div class="report-item-header">
+                        <div class="report-item-title"><h2>${item.metadata.company}</h2><h3>${item.ctaName}</h3></div>
+                        <ul class="report-item-metadata">
+                            <li><strong>CSM:</strong> ${item.metadata.csm}</li>
+                            <li><strong>Field CTO:</strong> ${item.metadata.fieldCto}</li>
+                            <li><strong>Account Owner:</strong> ${item.metadata.accountOwner}</li>
+                            <li><strong>Priority:</strong> ${item.metadata.priority}</li>
+                            <li><strong>Age:</strong> ${item.metadata.age} days</li>
+                            <li><strong>Renewal:</strong> ${item.metadata.renewal}</li>
+                            <li><strong>ARR:</strong> ${item.metadata.arr}</li>
+                        </ul>
                     </div>
-                `;
+                    <div class="summary-content">${s}</div>
+                </div>`;
             });
-
-            const html = `
-                <h1 class="text-3xl font-bold mt-8">Detailed CTA Summaries</h1>
-                ${tableRows}
-            `;
-            // APPEND the detailed report, don't overwrite the rollup
             reportContent.innerHTML += html;
         }
 
-        // --- NEW: Download and Copy-to-Clipboard Functions ---
-
-        /**
-         * NEW: Generates a self-contained HTML file for download that matches
-         * the in-app styles.
-         */
-        function downloadReportAsHTML() {
-            try {
-                // 1. Get the current date and time
-                const timestamp = new Date().toLocaleString();
-                const timestampHtml = `<p style="text-align: center; font-family: 'Inter', sans-serif; font-size: 14px; color: #4b5563; margin-bottom: 2rem;">Report generated on: ${timestamp}</p>`;
-
-                // 2. Get the report content
-                const reportHtml = reportContent.innerHTML;
-                
-                // 3. Get the app's styles
-                const styles = document.querySelector('style').innerHTML;
-                
-                // 4. Get the font links
-                const fontLinks = `
-                    <link rel="preconnect" href="https://fonts.googleapis.com">
-                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-                `;
-
-                // 5. Assemble the full HTML document
-                // IMPORTANT: Break the script tag string literal to avoid parser confusion
-                const fullHtmlDoc = `
-                    <!DOCTYPE html>
-                    <html lang="en">
-                    <head>
-                        <meta charset="UTF-8">
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <title>Executive CTA Summary Report</title>
-                        <script src="https://cdn.tailwindcss.com"><\/script>
-                        ${fontLinks}
-                        <style>
-                            ${styles}
-                            /* Add a print-friendly body style for the downloaded file */
-                            @media print {
-                                body {
-                                    padding: 0;
-                                    margin: 0;
-                                }
-                                .report-wrapper {
-                                    box-shadow: none !important;
-                                    border: none !important;
-                                    padding: 0 !important;
-                                    margin: 0 !important;
-                                }
-                            }
-                        </style>
-                    </head>
-                    <body class="bg-gray-100 text-gray-900 p-4 md:p-8">
-                        <!-- Use the same wrapper as the app for identical styling -->
-                        <div class="report-wrapper max-w-7xl mx-auto bg-white p-6 md:p-10 rounded-lg shadow-xl border border-gray-200">
-                            ${timestampHtml}
-                            ${reportHtml}
-                        </div>
-                    </body>
-                    </html>
-                `;
-
-                // 6. Create and trigger the download
-                const blob = new Blob([fullHtmlDoc], { type: 'text/html' });
-                const a = document.createElement('a');
-                a.href = URL.createObjectURL(blob);
-                a.download = `cta_executive_summary_${new Date().toISOString().split('T')[0]}.html`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(a.href);
-
-                showMessage('Report download started!', false);
-
-            } catch (error) {
-                console.error("Error generating HTML download:", error);
-                showMessage('Failed to generate HTML file for download.', true);
-            }
-        }
-
-        
-        // REMOVED: downloadReportAsDoc function
-
-        /**
-        * Copies the generated report as RICH, DOC-FORMATTED HTML to the clipboard
-        */
         function copyReportToClipboard() {
-            let successful = false;
-            let tempDiv = null;
-
-            // --- NEW: We must build the HTML for copy here, as we need access to the data ---
-            
-            // 1. Define minimal CSS for Word/Docs
-            const cssStyles = `
-                body { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.3; margin: 72pt; }
-                h1 { font-size: 20pt; font-weight: bold; color: #000000; margin-top: 24pt; margin-bottom: 12pt; }
-                h2 { font-size: 18pt; font-weight: bold; color: #000000; margin-top: 18pt; margin-bottom: 12pt; border-bottom: 1px solid #000000; padding-bottom: 4pt; }
-                h3 { font-size: 14pt; font-weight: bold; color: #000000; margin-top: 16pt; margin-bottom: 10pt; }
-                h4 { font-size: 11pt; font-weight: bold; color: #000000; margin-top: 10pt; margin-bottom: 4pt; }
-                table { border-collapse: collapse; width: 100%; margin-bottom: 16pt; page-break-inside: avoid; }
-                th, td { border: 1px solid #000000; padding: 6pt; text-align: left; vertical-align: top; }
-                th { background-color: #f0f0f0; font-weight: bold; font-size: 11pt; }
-                td { font-size: 11pt; }
-                ul { list-style-type: disc; margin-top: 5pt; margin-bottom: 5pt; padding-left: 30pt; }
-                li { margin-bottom: 4pt; }
-                .cta-list { list-style-type: disc; margin-top: 0; margin-bottom: 0; padding-left: 15pt; }
-                
-                /* New list styles for theme summary */
-                .theme-summary-ol { list-style-type: decimal; padding-left: 20pt; margin: 0; }
-                .theme-summary-ol > li { margin-bottom: 10pt; padding-left: 5pt; }
-                .theme-summary-ol > li > ul { list-style-type: disc; padding-left: 20pt; margin-top: 5pt; }
-                .theme-summary-ol > li > ul > li { margin-bottom: 5pt; font-weight: bold; }
-                .theme-summary-ol > li > ul > li > ul { list-style-type: none; padding-left: 10pt; margin-top: 2pt; border-left: 2px solid #cccccc; font-weight: normal; }
-                .theme-summary-ol > li > ul > li > ul > li { margin-bottom: 2pt; padding-left: 5pt; font-weight: normal; }
-
-                /* Styles for the detailed summary section */
-                .report-item { page-break-inside: avoid; margin-top: 12pt; padding-top: 12pt; border-top: 1px solid #cccccc; }
-                .report-item:first-of-type { border-top: none; padding-top: 0; }
-                .report-item-header { display: table; width: 100%; }
-                .report-item-title { display: table-cell; width: 70%; }
-                .report-item-title h2 { font-size: 14pt; font-weight: bold; border: none; margin: 0 0 4pt 0; }
-                .report-item-title h3 { font-size: 12pt; font-weight: normal; font-style: italic; color: #333; margin: 0; }
-                .report-item-metadata { display: table-cell; width: 30%; text-align: right; font-size: 11pt; vertical-align: top; }
-                .summary-content { margin-top: 8pt; }
-            `;
-
-            // 2. Build HTML Body
-            let bodyHtml = `<h1>Risk Account Summary</h1><h2>Executive Roll-up</h2>`;
-
-            // --- Check if data is available (i.e., not loaded from cache) ---
-            if (rankedThreats.length === 0 && ctaReportData.length === 0) {
-                 try {
-                    // Try to copy the visible HTML from reportContent as a fallback
-                    // This handles the "Load from Cache" case
-                    tempDiv = document.createElement('div');
-                    tempDiv.style.position = 'absolute';
-                    tempDiv.style.left = '-9999px';
-                    tempDiv.style.top = '0';
-                    tempDiv.innerHTML = reportContent.innerHTML;
-                    document.body.appendChild(tempDiv);
-                
-                    const range = document.createRange();
-                    range.selectNode(tempDiv);
-                    window.getSelection().removeAllRanges();
-                    window.getSelection().addRange(range);
-                    successful = document.execCommand('copy');
-
-                } catch (err) {
-                    console.warn('Fallback copy failed', err);
-                    successful = false;
-                } finally {
-                    if (window.getSelection()) window.getSelection().removeAllRanges();
-                    if (tempDiv) document.body.removeChild(tempDiv);
-                }
-                
-                if (successful) {
-                    showMessage('Loaded report from cache and copied to clipboard!', false);
-                } else {
-                    showMessage('Failed to copy cached report. Please re-run the report.', true);
-                }
-                return; // Exit function
-            }
-            // --- End cache check ---
-
-
-            // --- Build HTML from live data ---
-            try {
-                // Threat Ranking
-                bodyHtml += `<h3>Top Renewal Threat Ranking</h3>
-                    <table>
-                        <thead><tr><th>Rank</th><th>Account</th><th>CTA(s)</th><th>ARR</th><th>Renews</th><th>Max Age</th><th>Max Priority</th></tr></thead>
-                        <tbody>`;
-                const topThreats = rankedThreats.slice(0, 10);
-                if (topThreats.length > 0) {
-                    topThreats.forEach((client, index) => {
-                        const ctaListHtml = client.ctaNames.length > 1 
-                            ? `<ul class="cta-list">${client.ctaNames.map(name => `<li>${name}</li>`).join('')}</ul>`
-                            : client.ctaNames[0] || 'N/A';
-                        bodyHtml += `
-                            <tr>
-                                <td style="font-weight: bold;">#${index + 1}</td>
-                                <td>${client.companyName}</td>
-                                <td>${ctaListHtml}</td>
-                                <td>${client.arrFormatted}</td>
-                                <td>${client.renewalDateFormatted}</td>
-                                <td>${client.age}</td>
-                                <td>${client.priorityRaw}</td>
-                            </tr>`;
-                    });
-                } else {
-                    bodyHtml += `<tr><td colspan="7">No threat data to display.</td></tr>`;
-                }
-                bodyHtml += `</tbody></table>`;
-
-                // Risk Themes
-                bodyHtml += `<h3>Risk Theme Analysis</h3>
-                    <table>
-                        <thead><tr><th>Theme</th><th>Account-Specific Evidence</th><th>All Accounts</th><th>Total</th></tr></thead>
-                        <tbody>`;
-                const sortedThemes = Object.entries(themeAggregates).sort(([, a], [, b]) => b.count - a.count);
-                if (sortedThemes.length > 0) {
-                    // UPDATED: Build the full evidence list using the global ctaDataWithThemes variable
-                    for (const [theme, data] of sortedThemes) {
-                        const { count, companies, reasonCount, predictedCount } = data;
-                        const uniqueCompanies = [...new Set(companies)];
-                        const displayedCompanies = uniqueCompanies.join(', ');
-                        const countHtml = `${count} <span style="font-size: 9pt; color: #555;">(${reasonCount} R, ${predictedCount} P)</span>`;
-
-                        // --- Build nested evidence list ---
-                        const ctasForThisTheme = ctaDataWithThemes.filter(cta => cta.predictedTheme === theme);
-                        
-                        const accountsForThisTheme = new Map();
-                        ctasForThisTheme.forEach(cta => {
-                            const companyName = cta[mappings.companyName] || 'N/A';
-                            if (!accountsForThisTheme.has(companyName)) {
-                                accountsForThisTheme.set(companyName, []);
-                            }
-                            accountsForThisTheme.get(companyName).push(cta);
-                        });
-
-                        let summaryHtml = '<ol class="theme-summary-ol">';
-                        // Sort accounts alphabetically
-                        const sortedAccounts = [...accountsForThisTheme.entries()].sort((a, b) => a[0].localeCompare(b[0]));
-
-                        for (const [accountName, ctas] of sortedAccounts) {
-                            summaryHtml += `<li><strong>${accountName}</strong>`;
-                            summaryHtml += '<ul>'; // Start CTA list
-                            
-                            // Sort CTAs alphabetically
-                            ctas.sort((a, b) => (a[mappings.ctaName] || '').localeCompare(b[mappings.ctaName] || ''));
-
-                            ctas.forEach(cta => {
-                                summaryHtml += `<li>${cta[mappings.ctaName]}<ul>`; // Start details list
-                                summaryHtml += `<li><strong>Source:</strong> ${cta.themeSource}</li>`;
-                                
-                                let ctaSummary = (cta.themeAlignedSummary || 'Summary could not be generated.').trim();
-                                summaryHtml += `<li>${ctaSummary}</li>`;
-                                summaryHtml += '</ul></li>'; // End details list & CTA item
-                            });
-                            summaryHtml += '</ul></li>'; // End CTA list & Account item
-                        }
-                        summaryHtml += '</ol>';
-                        
-                        if (sortedAccounts.length === 0) {
-                            summaryHtml = '<ul><li>No specific evidence found.</li></ul>';
-                        }
-                        // --- End evidence list ---
-
-                        bodyHtml += `
-                            <tr>
-                                <td>${theme}</td>
-                                <td>${summaryHtml}</td>
-                                <td style="font-size: 9pt;">${displayedCompanies}</td>
-                                <td style="text-align: right;">${countHtml}</td>
-                            </tr>
-                        `;
-                    }
-                } else {
-                    bodyHtml += `<tr><td colspan="4">No risk themes identified.</td></tr>`;
-                }
-                bodyHtml += `</tbody></table>`;
-            
-                // Near-Term Renewals
-                bodyHtml += `<h3>Risk Accounts with Upcoming Renewals (0-90 Days)</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Account</th>
-                                <th>CTA(s)</th>
-                                <th>ARR</th>
-                                <th>Renews</th>
-                            </tr>
-                        </thead>
-                        <tbody>`;
-                if (renewalRisk.nearTermClients && renewalRisk.nearTermClients.length > 0) {
-                    renewalRisk.nearTermClients.forEach(client => {
-                        const ctaListHtml = client.ctaNames.length > 1 
-                            ? `<ul class="cta-list">${client.ctaNames.map(name => `<li>${name}</li>`).join('')}</ul>`
-                            : client.ctaNames[0] || 'N/A';
-                        bodyHtml += `
-                            <tr>
-                                <td>${client.name}</td>
-                                <td>${ctaListHtml}</td>
-                                <td style="font-weight: bold;">${client.arrFormatted}</td>
-                                <td>${client.renewalDateFormatted}</td>
-                            </tr>
-                        `;
-                    });
-                } else {
-                    bodyHtml += `<tr><td colspan="4">No immediate renewal risks identified.</td></tr>`;
-                }
-                bodyHtml += `
-                        <tr style="background-color: #f0f0f0; font-weight: bold;">
-                            <td colspan="2" style="text-align: right;">Total Near-Term Risk:</td>
-                            <td colspan="2" style="font-size: 12pt;">${renewalRisk.nearTermTotalArrFormatted || '$0'}</td>
-                        </tr>
-                    </tbody></table>`;
-
-                // Mid-Term Renewals
-                bodyHtml += `<h3>Risk Accounts with Upcoming Renewals (91-180 Days)</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Account</th>
-                                <th>CTA(s)</th>
-                                <th>ARR</th>
-                                <th>Renews</th>
-                            </tr>
-                        </thead>
-                        <tbody>`;
-                if (renewalRisk.midTermClients && renewalRisk.midTermClients.length > 0) {
-                    renewalRisk.midTermClients.forEach(client => {
-                        const ctaListHtml = client.ctaNames.length > 1 
-                            ? `<ul class="cta-list">${client.ctaNames.map(name => `<li>${name}</li>`).join('')}</ul>`
-                            : client.ctaNames[0] || 'N/A';
-                        bodyHtml += `
-                            <tr>
-                                <td>${client.name}</td>
-                                <td>${ctaListHtml}</td>
-                                <td style="font-weight: bold;">${client.arrFormatted}</td>
-                                <td>${client.renewalDateFormatted}</td>
-                            </tr>
-                        `;
-                    });
-                } else {
-                    bodyHtml += `<tr><td colspan="4">No mid-term renewal risks identified.</td></tr>`;
-                }
-                bodyHtml += `
-                        <tr style="background-color: #f0f0f0; font-weight: bold;">
-                            <td colspan="2" style="text-align: right;">Total Mid-Term Risk:</td>
-                            <td colspan="2" style="font-size: 12pt;">${renewalRisk.midTermTotalArrFormatted || '$0'}</td>
-                        </tr>
-                    </tbody></table>`;
-
-                // Detailed Summaries
-                bodyHtml += `<h2>Detailed CTA Summaries</h2>`;
-                if (ctaReportData.length > 0) {
-                    ctaReportData.forEach(item => {
-                        // Sanitize summary for doc
-                        const summaryHtml = item.summary
-                            .trim()
-                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                            .replace(/Risks:/g, '<h4>Risks:</h4>')
-                            .replace(/Issues:/g, '<h4>Issues:</h4>')
-                            .replace(/Action Items:/g, '<h4>Action Items:</h4>')
-                            .replace(/\* (.*)/g, '<li>$1</li>')
-                            .replace(/(<li>.*<\/li>(?:\n<li>.*<\/li>)*)/g, '<ul>$1</ul>')
-                            .replace(/(<h4>.*<\/h4>\n)(No specific risks, issues, or action items identified\.)/g, '$1<p>$2</p>')
-                            .replace(/\n/g, ''); // Remove newlines
-
-                        bodyHtml += `
-                            <div class="report-item">
-                                <div class="report-item-header">
-                                    <div class="report-item-title">
-                                        <h2>${item.metadata.company}</h2>
-                                        <h3>${item.ctaName}</h3>
-                                    </div>
-                                    <div class="report-item-metadata">
-                                        <strong>CSM:</strong> ${item.metadata.csm}<br>
-                                        <strong>Field CTO:</strong> ${item.metadata.fieldCto}<br>
-                                        <strong>Account Owner:</strong> ${item.metadata.accountOwner}<br>
-                                        <strong>Priority:</strong> ${item.metadata.priority}<br>
-                                        <strong>Age:</strong> ${item.metadata.age} days<br>
-                                        <strong>Renewal:</strong> ${item.metadata.renewal}<br>
-                                        <strong>ARR:</strong> ${item.metadata.arr}
-                                    </div>
-                                </div>
-                                <div class="summary-content">
-                                    ${summaryHtml.includes('<p') || summaryHtml.includes('<ul>') || summaryHtml.includes('<h4>') ? summaryHtml : `<p>${summaryHtml}</p>`}
-                                </div>
-                            </div>
-                        `;
-                    });
-                } else {
-                    bodyHtml += `<p>No detailed summaries generated.</p>`;
-                }
-
-                // --- END: Build HTML from live data ---
-                
-                const fullHtml = `
-                    <!DOCTYPE html>
-                    <html lang="en">
-                    <head>
-                        <meta charset="UTF-8">
-                        <title>Executive CTA Summary</title>
-                        <style>${cssStyles}</style>
-                    </head>
-                    <body>
-                        ${bodyHtml}
-                    </body>
-                    </html>
-                `;
-
-                // Create a temporary, off-screen element to hold the HTML
-                tempDiv = document.createElement('div');
-                tempDiv.style.position = 'absolute';
-                tempDiv.style.left = '-9999px';
-                tempDiv.style.top = '0';
-                tempDiv.innerHTML = fullHtml; // Use the *full* HTML with styles
-                document.body.appendChild(tempDiv);
-                
-                // Create a range and select the content
-                const range = document.createRange();
-                range.selectNode(tempDiv);
-                
-                const selection = window.getSelection();
-                selection.removeAllRanges(); // Clear any existing selection
-                selection.addRange(range); // Add new range
-            
-                // Use execCommand as it's more reliable in iframes
-                successful = document.execCommand('copy');
-            } catch (err) {
-                console.warn('execCommand copy failed', err);
-                successful = false;
-            } finally {
-                // Clean up
-                if (window.getSelection()) {
-                    window.getSelection().removeAllRanges();
-                }
-                if (tempDiv) {
-                    document.body.removeChild(tempDiv);
-                }
-            }
-            
-            if (successful) {
-                showMessage('Report copied to clipboard! Paste it into your Google Doc.', false);
-            } else {
-                showMessage('Failed to copy report. Please try copying manually.', true);
-            }
-        }
- 
-        /**
-         * Clears all saved settings from localStorage and resets the UI
-         */
-        function clearSettings() {
-            try {
-                localStorage.removeItem(API_KEY_STORAGE_KEY);
-                localStorage.removeItem(MAPPINGS_STORAGE_KEY);
-                localStorage.removeItem(MODEL_STORAGE_KEY);
-                localStorage.removeItem(REPORT_CACHE_KEY); // NEW
-                localStorage.removeItem(REPORT_CACHE_TIMESTAMP_KEY); // NEW
-
-                // Reset UI elements
-                apiKeyInput.value = '';
-                modelSelectEl.selectedIndex = 0; // Reset to first option
-                ctaFileEl.value = '';
-                timelineFileEl.value = '';
-
-                // Reset state variables
-                mappings = {
-                    ctaName: '',
-                    companyName: '',
-                    csmName: '',
-                    fieldCtoName: '', // NEW
-                    accountOwnerName: '', // NEW
-                    ctaCreatedDate: '', // NEW
-                    ctaAge: '', // NEW
-                    ctaPriority: '', // NEW
-                    renewalDate: '',
-                    arr: '',
-                    riskTheme: '', // Reset riskTheme
-                    timelineCtaName: '',
-                    timelineNote: '',
-                    timelineActivityDate: '' // Reset date mapping
-                };
-                ctaHeaders = [];
-                ctaData = [];
-                timelineHeaders = [];
-                timelineData = [];
-
-                // NEW: Reset global report data
-                rankedThreats = [];
-                themeAggregates = {};
-                renewalRisk = {};
-                ctaReportData = [];
-                ctaDataWithThemes = []; // NEW: Reset global variable
-
-                // Hide mapping sections
-                ctaMappingEl.classList.add('hidden');
-                ctaMappingEl.innerHTML = '';
-                timelineMappingEl.classList.add('hidden');
-                timelineMappingEl.innerHTML = '';
-
-                // Hide report and cache
-                reportContainer.classList.add('hidden');
-                reportContent.innerHTML = '';
-                cacheLoaderEl.classList.add('hidden'); // NEW
-
-                // Update UI states
-                updateModelInfo();
-                checkGenerateButtonState();
-                
-                showMessage('Saved settings have been cleared.', false);
-
-            } catch (error) {
-                console.error("Error clearing settings:", error);
-                showMessage('Could not clear settings.', true);
-            }
+            const range = document.createRange(); range.selectNode(reportContent);
+            window.getSelection().removeAllRanges(); window.getSelection().addRange(range);
+            document.execCommand('copy'); window.getSelection().removeAllRanges();
+            showMessage('Copied to clipboard!');
         }
 
-        /**
-         * Shows a success or error message
-         */
-        function showMessage(message, isError = false) {
-            messageText.textContent = message;
-            if (isError) {
-                messageBox.classList.remove('bg-green-500');
-                messageBox.classList.add('bg-red-500');
-            } else {
-                messageBox.classList.remove('bg-red-500');
-                messageBox.classList.add('bg-green-500');
-            }
-            messageBox.classList.add('show');
-            
-            // Hide after 3 seconds
-            setTimeout(() => {
-                messageBox.classList.remove('show');
-            }, 3000);
+        function downloadReportAsHTML() {
+            const fullHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8"><script src="https://cdn.tailwindcss.com"><\/script><style>${document.querySelector('style').innerHTML}</style></head><body class="bg-gray-100 p-8"><div class="max-w-7xl mx-auto bg-white p-10 rounded-lg shadow-xl">${reportContent.innerHTML}</div></body></html>`;
+            const blob = new Blob([fullHtml], { type: 'text/html' });
+            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `CTA_Executive_Summary.html`; a.click();
         }
 
-        // === Event Listeners ===
-        // Placed at the end of the script to ensure all functions are defined
-        document.addEventListener('DOMContentLoaded', loadSettings); // Load settings on page load
-        apiKeyInput.addEventListener('input', (e) => {
-            try {
-                localStorage.setItem(API_KEY_STORAGE_KEY, e.target.value);
-            } catch (error) {
-                console.warn("Could not save API key to localStorage:", error);
-            }
-            checkGenerateButtonState();
-        });
+        document.addEventListener('DOMContentLoaded', loadSettings);
+        apiKeyInput.addEventListener('input', e => localStorage.setItem(API_KEY_STORAGE_KEY, e.target.value));
         modelSelectEl.addEventListener('input', updateModelInfo);
-        ctaFileEl.addEventListener('change', (e) => handleFileUpload(e, 'cta'));
-        timelineFileEl.addEventListener('change', (e) => handleFileUpload(e, 'timeline'));
+        ctaFileEl.addEventListener('change', e => handleFileUpload(e, 'cta'));
+        timelineFileEl.addEventListener('change', e => handleFileUpload(e, 'timeline'));
         generateBtn.addEventListener('click', generateReport);
         copyBtn.addEventListener('click', copyReportToClipboard);
-        downloadBtn.addEventListener('click', downloadReportAsHTML); // UPDATED: Added listener
-        clearSettingsBtn.addEventListener('click', clearSettings);
-        loadCacheBtn.addEventListener('click', loadCachedReport); // NEW
-        clearCacheBtn.addEventListener('click', clearCachedReport); // NEW
-        
-        // NEW: Toggle Prompts Listener
-        promptsToggleBtn.addEventListener('click', () => {
-            promptsContainer.classList.toggle('hidden');
-            if (promptsContainer.classList.contains('hidden')) {
-                promptsToggleIcon.textContent = '▼';
-            } else {
-                promptsToggleIcon.textContent = '▲';
-            }
-        });
+        downloadBtn.addEventListener('click', downloadReportAsHTML);
+        clearSettingsBtn.addEventListener('click', () => { localStorage.clear(); location.reload(); });
+        loadCacheBtn.addEventListener('click', loadCachedReport);
+        clearCacheBtn.addEventListener('click', clearCachedReport);
+        promptsToggleBtn.addEventListener('click', () => { promptsContainer.classList.toggle('hidden'); promptsToggleIcon.textContent = promptsContainer.classList.contains('hidden') ? '▼' : '▲'; });
 
+        function showMessage(m, err = false) {
+            messageText.textContent = m; messageBox.className = err ? 'bg-red-500 text-white fixed show' : 'bg-green-500 text-white fixed show';
+            setTimeout(() => messageBox.classList.remove('show'), 3000);
+        }
     </script>
 </body>
 </html>
